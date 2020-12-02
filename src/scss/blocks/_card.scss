@@ -1,0 +1,121 @@
+$card-themes: (
+  'green': 'primary',
+  'blue': 'secondary',
+  'cyan': 'quaternary',
+  'red': 'accent'
+);
+
+$border-width-thick: 0.375rem;
+$border-width-thin: 0.1875rem;
+
+$card-border-radius-large: 6.25rem;
+
+$padding-h-large: get-size('900');
+
+
+// @mixin card($primary-color, $secondary-color) {
+
+//   &
+// }
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+
+  // content
+  >div:nth-of-type(1) {
+    text-transform: uppercase;
+  }
+  >div:nth-of-type(2) ul {
+    padding-left: 1rem;
+  }
+  
+  // SIZE
+  // SMALL CALRD
+  max-width: 20rem;
+  >div:nth-of-type(1) {
+    padding: 2.125rem 3.125rem 1.75rem 2.5rem;
+    border-radius: 0 6.25rem 0 0;
+  }
+  >div:nth-of-type(2) {
+    font-size: get-size('400');
+    padding: 1rem;
+    border: $border-width-thin solid;
+    border-radius: 0 0 6.25rem 0;
+    
+    @include media-query('sm') {
+      padding: 2.25rem 2.5rem;
+    }
+  }
+  
+  //  LARGE CARD 
+  &[data-size=large] {
+    max-width: 32rem;
+    >div:nth-of-type(1) {
+      padding: 4.375rem 4.375rem 2.5rem 4.375rem;
+      border-radius: 0  3.125rem 0 0;
+      
+      @include media-query('md') {
+        padding: get-size('900');
+        padding-bottom: get-size('700');
+        border-radius: 0 $card-border-radius-large 0 0;
+        
+      }
+    }
+    >div:nth-of-type(2) {
+      border: $border-width-thin solid;
+      border-radius: 0 0 3.125rem 0;
+      
+      @include media-query('md') {
+        padding: get-size('600') calc(#{$padding-h-large} - #{$border-width-thin}) get-size('700');
+        border: $border-width-thick solid;
+        border-radius: 0 0 $card-border-radius-large 0;
+        
+      }
+    }
+  }
+  // END SIZE
+  
+  // COLOR
+  // defaults
+  >div:nth-of-type(1) {
+    color: get-color('light');
+    background-color: get-color('primary');
+  }
+  >div:nth-of-type(2) {
+    background-color: get-color('light');
+    border-color: get-color('primary')!important;
+  }
+  // color variants
+
+  @each $name, $color in $card-themes {
+    &.card--variant-#{$name} {
+      >div:nth-of-type(1) {
+        color: get-color(light);
+        background-color: get-color($color);
+      }
+      >div:nth-of-type(2) {
+        background-color: get-color('light');
+        border-color: get-color($color)!important;
+      }
+    }
+  }
+
+  &[data-inverted=true] {
+    @each $name, $color in $card-themes {
+      &.card--variant-#{$name} {
+        >div:nth-of-type(1) {
+          color: get-color($color);
+          background-color: get-color(light);
+        }
+        >div:nth-of-type(2) {
+          background-color: get-color($color);
+          color: get-color('light');
+          border-color: get-color($color)!important;
+        }
+      }
+    }
+  }
+
+}

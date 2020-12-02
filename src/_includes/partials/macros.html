@@ -1,0 +1,71 @@
+
+{# CARD MACRO 
+  @contentTop! = HTML
+  @contentBottom! = HTML
+  @variant = STRING = green | blue | red | yellow | cyan
+  @size = STRING = large | normal
+  @inverted = BOOL
+ #}
+
+{% macro card(
+
+  contentTop='<h2> Missing Title</h2>', 
+  contentBottom='<p>Missing Content</p>', 
+  variant='green', 
+  size="normal", 
+  inverted="false" ) %}
+<div class="[ card card--variant-{{variant}} ]" data-size="{{size}}" data-inverted="{{inverted}}">
+  <div class="flow">
+    {{contentTop | safe}}
+  </div>
+  <div  class="[ flow ]">
+    {{contentBottom | safe}}
+  </div>
+</div>
+
+{% endmacro %}
+
+
+{# MAGAZINE SECTION MACRO 
+  @heading! = HTML
+  @content! =  HTML
+  @subHeading = HTML
+  @eyebrow = STRING
+  @variant = STRING = green | blue | red | yellow | cyan
+  @size = STRING = large | normal
+  @inverted = BOOL
+ #}
+{% macro magSection(
+  heading='<h2> Missing Title</h2>', 
+  eyebrow, 
+  subHeading, 
+  content='<p>Missing Content</p>',
+  variant='green', 
+  size="normal", 
+  inverted="false" ) %}
+
+<div class="magSection">
+  <div class="magSection__image">
+    <img src="/images/bg/Favorite-Shot-of-the-Water-Park.jpg" alt="MISSING ALT"/>
+  </div>
+  <div class="[ magSection__content ] [ flow ]">
+
+    {% if eyebrow %}
+      <p class="[ eyebrow ]">{{eyebrow | safe}}</p>
+    {% endif %}
+
+    {{heading | safe}}
+
+    {% if subHeading %}
+      <div class="subHeadingWrapper">
+        {{subHeading | safe}}
+      </div>
+    {% endif %}
+
+    <div class="rteWrapper flow">
+      {{content | safe}}
+    </div>
+  </div>
+</div>
+
+{% endmacro %}

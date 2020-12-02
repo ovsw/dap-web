@@ -1,0 +1,282 @@
+[
+  {
+    "name": "For Groups",
+    "url": "",
+    "children": [
+      {
+        "column": 1,
+        "name": "Amusement Park Groups",
+        "children": [
+          {
+            "name": "Group Picnics",
+            "url": "/group-picnics/"
+          },
+          {
+            "name": "School Picnics",
+            "url": "/school-picnics/"
+          },
+          {
+            "name": "Birthday Parties",
+            "url": "/buddy-bears-birthday-roundhouse/"
+          },
+          {   
+            "name": "Specialty Groups",
+            "url": "/specialty-groups/"
+          },
+          {
+            "name": "Group Pricing",
+            "url": "/groups-pricing/"
+          }
+        ]
+      },
+      {
+        "column": 2,
+        "name": "Water Park Groups",
+        "children": [
+          {
+            "name": "Cabana Rentals",
+            "url": "/cabana-rental-information/"
+          }
+        ]
+      }
+    ]
+  },{
+    "name": "Famous Food",
+    "url": "",
+    "children": [
+      {
+        "column": 1,
+        "name": "Famous Italian Food",
+        "children": [
+          {
+           "name": "Food Menus",
+            "url": "/famous-food/food-menus/"
+          },
+          {
+            "name": "Food Map",
+            "url": "/famous-food/food-map/"
+          },
+          {
+          "name": "Food News",
+            "url": "/famous-food/food-news/"
+          },
+          {
+          "name": "The DelGrosso Food Tradition",
+            "url": "/famous-food/the-delgrosso-food-tradition/"
+          },
+          {
+          "name": "Pick-up and Delivery Catering",
+            "url": "/famous-food/pick-up-delivery-catering/"
+          }
+        ]
+      },
+      {
+        "column": 2,
+        "name": "Miss Our Food?",
+        "children": [],
+        "banner": "[dg2go banner placeholder]"
+      }
+    ]
+  },{
+    "name": "Explore",
+    "url": "",
+    "children": [
+      {
+        "column": 1,
+        "name": "Things to Do",
+        "children": [
+          {
+           "name": "Famous Food",
+            "url": "/famous-food/the-delgrosso-food-tradition/"
+          },
+          {
+            "name": "Park Rides",
+            "url": "/rides/"
+          },
+          {
+          "name": "Waterpark Atractions",
+            "url": "/laguna-splash-water-park/attractions/"
+          },
+          {
+          "name": "Places to Stay & Things to See",
+            "url": "/place-to-stay-and-things-to-see/"
+          }
+        ]
+      },
+      {
+        "column": 2,
+        "name": "Special Events",
+        "children": [
+          {
+            "name": "Upcoming Events",
+            "url": "/events/"
+          },
+          {
+            "name": "Event Calendar",
+            "url": "/events/calendar/"
+          },
+          {
+            "name": "Event Archive",
+            "url": "/events/archive/"
+          }
+        ]
+      },
+      {
+        "column": 3,
+        "name": "About Us",
+        "children": [
+          {
+            "name": "Our History",
+            "url": "/our-history/"
+          },
+          {
+            "name": "A DelGrosso Family of Companies",
+            "url": "/a-delgrosso-family-of-companies/"
+          },
+          {
+            "name": "Sponsors",
+            "url": "/sponsors/"
+          },
+          {
+            "name": "Friends of the Park",
+            "url": "/friends-of-the-park/"
+          }
+        ]
+      }
+    ]
+  },{
+    "name": "Info Booth",
+    "url": "",
+    "children": [
+      {
+        "column": 1,
+        "name": "Getting Around",
+        "children": [
+          {
+           "name": "Park Map",
+            "url": "/map/"
+          },
+          {
+            "name": "Food Map",
+            "url": "/food-map/"
+          },
+          {
+          "name": "Directions",
+            "url": "/directions/"
+          },
+          {
+          "name": "Safety & Accessibility Guide",
+            "url": "/rider-safety-and-accessibility-guide/"
+          },
+          {
+          "name": "Rental Lockers, Strollers & Scooters",
+            "url": "/locker-scooter-and-stroller-rentals/"
+          }
+        ]
+      },
+      {
+        "column": 2,
+        "name": "News",
+        "children": [
+          {
+            "name": "Closures",
+            "url": "/closures/"
+          },
+          {
+            "name": "Park News",
+            "url": "/news/"
+          },
+          {
+            "name": "Events",
+            "url": "/events/"
+          }
+        ]
+      },
+      {
+        "column": 3,
+        "name": "Handy Info",
+        "children": [
+          {
+            "name": "2021 Season FAQs",
+            "url": "/faqs/"
+          },
+          {
+            "name": "First Aid & Infant Center",
+            "url": "/first-aid-infant-and-care-center/"
+          },
+          {
+            "name": "Guest Policies & Info",
+            "url": "/guest-policies/"
+          },
+          {
+            "name": "Main Park Office & Info Booths",
+            "url": "/main-park-office/"
+          },
+          {
+            "name": "Places to Stay & Things to See",
+            "url": "/place-to-stay-things-to-see/"
+          }
+        ]
+      }
+    ]
+  },{
+    "name": "Passes & Tickets",
+    "url": "/blog/",
+    "children": [
+      {
+        "column": 1,
+        "name": "Info",
+        "children": [
+          {
+           "name": "Hours & Schedule",
+            "url": "/hours-and-schedule-of-operation/"
+          },
+          {
+            "name": "Gift Cards",
+            "url": "/gift-cards/"
+          },
+          {
+          "name": "Rain Checks Info",
+            "url": "/rain-check-info/"
+          }
+        ]
+      },
+      {
+        "column": 2,
+        "name": "Passes",
+        "children": [
+          {
+            "name": "All Day Fun Pass",
+            "url": "/passes/all-day-fun-pass/"
+          },
+          {
+            "name": "Sundowner Pass",
+            "url": "/passes/sundowner-fun-pass/"
+          },
+          {
+          "name": "Season Pass",
+            "url": "/passes/season-pass/"
+          },
+          {
+          "name": "Season Pass Holders",
+            "url": "/season-pass-holder-information/"
+          }
+        ]
+      },
+      {
+        "column": 3,
+        "name": "Tickets",
+        "children": [
+          {
+            "name": "Ride Tickets",
+            "url": "/ride-tickets/"
+          },
+          {
+          "name": "Park Rides",
+            "url": "/rides/"
+          }
+        ]
+      }
+    ]
+  }
+]

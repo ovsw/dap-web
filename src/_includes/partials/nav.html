@@ -1,0 +1,89 @@
+        <nav class="[ nav ] [ site-head__nav ]" 
+          id="nav-list"
+          aria-label="Main Menu" 
+          x-bind:data-open="mainMenuisOpen" 
+          :aria-expanded="mainMenuisOpen" 
+        >
+          <ul class="nav__list">
+
+              {# nav is json object provided in data/nav.json #}
+              {% for mainNavItem in nav -%}
+                {# check if we have sub-items #}
+                {% if mainNavItem.children.length > 0 %}
+                  
+                {# main dropdown toggle #}
+                <li
+                  class="nav__item no-{{ loop.index }}"
+                  x-data="{ subMenuIsOpen: false }"
+                >
+                  <button
+                    aria-label="{{ mainNavItem.name}} sub-menu toggle"
+                    aria-controls="{{ mainNavItem.name | makeId}}-submenu" 
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    x-bind:data-state="subMenuIsOpen ? 'active' : ''"
+                    @click="subMenuIsOpen = !subMenuIsOpen"
+                  >
+                    {{-mainNavItem.name-}} {%- include "partials/svg/icon-caret-down.svg" -%}
+                  </button>
+                  
+                  {# submenu (columns wrapper) #}
+                  <ul 
+                    class="nav__submenu no-{{ loop.index }}"
+                    x-show="subMenuIsOpen"
+                    @click.away="subMenuIsOpen = false"
+                    id="{{ mainNavItem.name | makeId}}-submenu" 
+                    aria-label="{{ mainNavItem.name}} sub-menu"
+                    {# :data-show="submenuVisible" #}
+                  >
+                    {# submenu items (columns) #}
+                    {% for column in mainNavItem.children -%}
+                      {# column #}
+                      <li class="nav__column">
+                        {# column title #}
+                        <span class="col-title">{{column.name}}</span>
+
+                        {# CASE: normal column that has link items #}
+                        {% if column.children.length > 0 -%}
+                        <ul class="nav__column-items">
+                        {# list all column items #}
+                        {% for columnItem in column.children -%}
+                          <li><a href="{{columnItem.url}}">{{columnItem.name}}</a></li>
+                        {%- endfor %}
+                        {# END list column items #}
+                        </ul>
+                        {%- endif %}
+
+                        {# CASE: banner (like for DG2GO) #}
+                        {% if column.banner %}
+                          <div class="banner">{{ column.banner }}</div>                        
+                        {% endif %}
+                      </li>
+                    {%- endfor %}
+                    <div class="arrow"></div>
+                  </ul>
+                </li>
+
+                {# if no subItems: #}
+                {% else %}            
+                <li><a href="/{{languagePrefix}}{{mainNavItem.url}}">{{mainNavItem.name}}</a></li>            
+                {% endif %}
+              {%- endfor %}
+
+          </ul>
+        </nav>
+        {# END NAVIGATION #}
+        {# MOBILE MENU TOGGLE #}
+          <div class="hamburger-menu__container">
+              <button 
+                aria-controls="nav-list" 
+                aria-label="Main Menu toggle" 
+                :aria-expanded="mainMenuisOpen" 
+                class="hamburger-menu"  
+                @click.prevent="mainMenuisOpen = !mainMenuisOpen" 
+                x-bind:data-open="mainMenuisOpen" 
+                >
+                  <div></div>
+              </button>
+          </div>
+          {# END MOBILE MENU TOGGLE #}

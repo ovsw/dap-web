@@ -1,0 +1,13 @@
+
+
+.eyebrow {
+  text-transform: uppercase;
+  @extend .font-headline;
+  letter-spacing: 5px;
+  font-size: get-size('350');
+
+  color: get-color('secondary');;
+  // TODO: Eyebrow colors
+
+
+}

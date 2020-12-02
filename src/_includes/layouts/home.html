@@ -1,0 +1,43 @@
+{% extends "layouts/base.html" %}
+{% set pageCriticalStyles = ['css/home.css'] %}
+{% import 'partials/macros.html' as macro %}
+
+{% block content %}
+
+  {% include "partials/hero.html" %}
+
+
+  {% set sectionContent %}
+    {# <p>Safe Trick or Treat Drive Thru at the park on Saturday - October 31st, 2020 from 4pm-6pm in the DG2Go Parking Lot (water side).</p>
+
+    <p>The first 1200 kids who come through (safely in cars, no walk ups) will receive a bag of Halloween Goodies from our Spooky Sponsors!!!</p> #}
+
+    <ul>
+    <li>Free Parking</li>
+    <li>Free Admission into Ride Park</li>
+    </ul>
+    <p>All-Day Fun Passes and Individual Ride Tickets are available. We can't wait to see you!</p>
+
+    <a href="#" class="[ button ] [ button--colored-bg button--color-blue ]">Event Details</a>
+  {% endset%}
+
+  {{macro.magSection(
+    eyebrow="Park News",
+    heading="<h2>Check Out Our Expanded Water Park</h2>",
+    subHeading="<h3 class='subtitle'>We've added so much more to our water park for families to enjoy!</h3>",
+    content=sectionContent
+  )}}
+
+  
+  {# <div class="wrapper">
+    <article>
+      <h1 class="headline" data-color="secondary-light">{{ title }}</h1>
+
+
+      
+{{ content | safe }}
+
+       
+    </article> #}
+  </div>
+{% endblock %}

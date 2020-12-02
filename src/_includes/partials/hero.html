@@ -1,0 +1,35 @@
+{% import 'partials/macros.html' as macro %}
+
+
+{% set cardBottomContent %}
+  <ul>
+    <li>Visit The Kid's Kingdom</li>
+    <li>Enjoy our thrilling midway rides and games</li>
+    <li>Dig into our famous food</li>
+    <li>Cool off at our Water Park</li>
+  </ul>
+  <div>
+    <a href="#" class="[ button ] [ button--colored-bg button--color-green ]">Buy Pass Online &amp; Save</a>
+  </div>
+{% endset%}
+
+<div class="hero">
+      <div class="hero__bg-image">
+
+      </div>
+  <div class="wrapper ">
+
+      <!-- /.hero__bg-image -->
+      <div class="hero__content">
+        {{macro.card(
+          variant="green", 
+          size="large", 
+          contentTop='<h1>Family Fun at an Affordable Price in Tipton, PA</h1> <h2 class="[ subtitle ]">Spend the entire day!</h2>',
+          contentBottom=cardBottomContent
+          )
+        }}
+      </div>
+      <!-- /.hero__content -->
+
+  </div>
+</div>
