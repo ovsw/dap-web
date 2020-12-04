@@ -6,14 +6,15 @@ $sectionColors: (
 );
 
 .magSection {
-    margin-top: 0.9375rem;
-    margin-bottom: 0.9375rem;
+    margin-top: var(--grid-space);
+    margin-bottom: var(--grid-space);
 
     display: flex;
-    // display: grid;
-    // grid-template-columns: 50% max-content auto;
-    // grid-template-rows: 1fr;
-    // gap: 15px 15px;
+    flex-wrap: wrap;
+
+    @media screen and (min-width: 50rem) {
+      flex-wrap: nowrap;
+    }
 
     // GENERATE SECTION COLORS
     @each $name, $color in $sectionColors {
@@ -29,15 +30,19 @@ $sectionColors: (
         }
       }
     }
-  
-
-  h2 {
-    font-size: get-size('700');
-  }
 
   &__image {
-    flex: 0 calc(50% - 7.5px);
+    flex: 1 100%;
+    min-height: 18.75rem;
+    margin-left: var(--grid-space);
+    margin-right: var(--grid-space);
+    margin-bottom: var(--grid-space);
     position: relative;
+
+    @media screen and (min-width: 50rem) {
+      flex: 0 calc(50% - 0.4688rem);
+      margin:0;
+    }
 
     img {
       position: absolute;
@@ -52,13 +57,34 @@ $sectionColors: (
   }
 
   &__content {
-    max-width: 39rem;
-    margin: 0 15px;
+    margin: 0 var(--grid-space);
     font-size: 1.125rem;
     border: 5px solid rgba($color: get-color('secondary'), $alpha: 0.5);
+    padding: calc(var(--grid-space) * 2) var(--grid-space);
+    
+    @include media-query('sm') {
+      padding: 1.875rem;
+    }
+    
+    @media screen and (min-width: 50rem) {
+      flex: 0 1 50%;
+      max-width: calc(50% - 0.9375rem - 0.4688rem );
+    }
+    @media screen and (min-width: 75rem) {
+      flex-shrink: 1;
+      min-width: none;
+      flex-basis: 40rem;
+      padding: 5rem 7.5rem;
+    }
 
-    @include media-query('lg') {
-      padding: 81px 120px;
+    
+    h2 {
+      font-size: get-size('600');
+      text-transform: uppercase;
+      
+      @include media-query('md') {
+        font-size: get-size('700');
+      }
     }
 
     &__subHeadingWrapper {
@@ -71,6 +97,7 @@ $sectionColors: (
   }
 }
 
+// alternate order of elements for consecutive sections
 .magSection + .magSection {
   flex-direction: row-reverse;
 }
