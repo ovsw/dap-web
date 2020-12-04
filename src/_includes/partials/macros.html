@@ -8,21 +8,19 @@
  #}
 
 {% macro card(
-
   contentTop='<h2> Missing Title</h2>', 
   contentBottom='<p>Missing Content</p>', 
   variant='green', 
   size="normal", 
   inverted="false" ) %}
-<div class="[ card card--variant-{{variant}} ]" data-size="{{size}}" data-inverted="{{inverted}}">
-  <div class="flow">
-    {{contentTop | safe}}
+  <div class="[ card card--variant-{{variant}} ]" data-size="{{size}}" data-inverted="{{inverted}}">
+    <div class="flow">
+      {{contentTop | safe}}
+    </div>
+    <div  class="[ flow ]">
+      {{contentBottom | safe}}
+    </div>
   </div>
-  <div  class="[ flow ]">
-    {{contentBottom | safe}}
-  </div>
-</div>
-
 {% endmacro %}
 
 
@@ -31,40 +29,121 @@
   @content! =  HTML
   @subHeading = HTML
   @eyebrow = STRING
-  @variant = STRING = green | blue | red | yellow | cyan
-  @size = STRING = large | normal
-  @inverted = BOOL
+  @color = STRING = green | blue | red | yellow | cyan
+  @theme = STRING = frame | fill
+  @variant = STRING = 
+  greenTheme-frame-greenBtn | greenTheme-frame-redBtn | greenTheme-frame-blue-btn |
+  blueTheme-frame-blueBtn | blueTheme-frame-greenBtn | blueTheme-frame-redBtn | 
+  redTheme-frame-redBtn | redTheme-frame-greenBtn | redTheme-frame-blueBtn |
+  yellowTheme-frame-greenBtn | yellowTheme-frame-blueBtn | yellowTheme-frame-redBtn |
+  
+  greenTheme-fill-whiteBtn | greenTheme-fill-yellowBtn | 
+  blueTheme-fill-whiteBtn | blueTheme-fill-yellowBtn | 
+  redTheme-fill-whiteBtn | redTheme-fill-yellowBtn | 
+  yellowTheme-fill-greenBtn | yellowTheme-fill-blueBtn | yellowTheme-fill-redBtn  
  #}
 {% macro magSection(
   heading='<h2> Missing Title</h2>', 
   eyebrow, 
   subHeading, 
   content='<p>Missing Content</p>',
-  variant='green', 
-  size="normal", 
-  inverted="false" ) %}
+  buttonText= '',
+  buttonLink= '',
+  image1= '',
+  themeColor='green', 
+  theme="frame",
+  variant="green-frame-green-button" 
+  
+  ) %}
 
-<div class="magSection">
-  <div class="magSection__image">
+  {# default to green bordered secttion, with green bg button (light text ) #}
+  {% set theme = 'frame' %} 
+  {% set themeColor = 'green' %}
+  {% set buttonStyle = 'colored-bg' %}
+  {% set buttonColor = 'green' %}
+  
+  {# SET VARS TO RENDER SECTION BASED ON SELECTED THEME #}
+
+  {# set the theme of the section and button (frame or solid bg) #}
+  {% if 'fill' in variant %}
+    {% set theme = 'fill' %}
+    {# exeption for yellow color, which should be considered light #}
+    {% if ('yellowTheme' in variant) or ('yellowBtn' in variant) %}
+      {% set buttonStyle = 'colored-bg' %}
+    {% else %}
+    {# for all colors, set buttons to light bg (colored text) #}
+      {% set buttonStyle = 'colored-text' %}
+    {% endif %}
+  {% endif %}
+
+  {# set the color of the theme #}
+  {% if 'greenTheme' in variant %}
+    {% set themeColor = 'green' %}
+  {% endif %}
+  {% if 'blueTheme' in variant %}
+    {% set themeColor = 'blue' %}
+  {% endif %}
+  {% if 'redTheme' in variant %}
+    {% set themeColor = 'red' %}
+  {% endif %}
+  {% if 'yellowTheme' in variant %}
+    {% set themeColor = 'yellow' %}
+  {% endif %}
+
+  {# set the button  color (also used for the eyebrow color) #}
+  {% if 'greenBtn' in variant %}
+    {% set buttonColor = 'green' %}
+  {% endif %}
+  {% if 'blueBtn' in variant %}
+    {% set buttonColor = 'blue' %}
+  {% endif %}
+  {% if 'redBtn' in variant %}
+    {% set buttonColor = 'red' %}
+  {% endif %}
+  {% if 'yellowBtn' in variant %}
+    {% set buttonColor = 'yellow' %}
+  {% endif %}
+  {% if 'whiteBtn' in variant %}
+    {% set buttonColor = 'white' %}
+  {% endif %}
+
+
+
+<div class="[ magSection ]" data-theme="{{theme}}" data-theme-color="{{themeColor}}">
+  <div class="[ magSection__image ]">
     <img src="/images/bg/Favorite-Shot-of-the-Water-Park.jpg" alt="MISSING ALT"/>
   </div>
   <div class="[ magSection__content ] [ flow ]">
 
     {% if eyebrow %}
-      <p class="[ eyebrow ]">{{eyebrow | safe}}</p>
+      <p class="[ eyebrow eyebrow--{{buttonColor}} ]">{{eyebrow}}</p>
     {% endif %}
 
     {{heading | safe}}
 
     {% if subHeading %}
-      <div class="subHeadingWrapper">
-        {{subHeading | safe}}
+      <div class="magSection__subHeadingWrapper">
+        {{subHeading | safe}} 
       </div>
     {% endif %}
 
-    <div class="rteWrapper flow">
-      {{content | safe}}
+    {# RTE CONTENT #}
+    <div class="magSection__rteWrapper [ flow ]">
+      {{content | safe}} 
     </div>
+
+    {# BUTTONS #}
+    {% if buttonText != "" %}
+    <div class="magSection__buttonWrapper">      
+      {% if buttonText != "" %}
+        <a href="{{buttonLink}}" class="[ button ] [ button--{{buttonStyle}} button--color-{{buttonColor}} ]">{{buttonText}}</a>
+      {% endif %}
+      {# {% if buttonText1 != "" %}
+        <a href="{{buttonLink2}}" class="[ button ] [ button--colored-bg button--color-{{themeColor}} ]">{{buttonText2}}</a>
+      {% endif %} #}
+    </div>
+    {% endif %}
+    
   </div>
 </div>
 
