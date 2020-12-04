@@ -21,6 +21,17 @@
     
   {% endset%}
 
+  {% set ctaSectionContent %}
+    {# <p>Safe Trick or Treat Drive Thru at the park on Saturday - October 31st, 2020 from 4pm-6pm in the DG2Go Parking Lot (water side).</p>
+
+    <p>The first 1200 kids who come through (safely in cars, no walk ups) will receive a bag of Halloween Goodies from our Spooky Sponsors!!!</p> #}
+
+    <p>All-Day Fun Passes and Individual Ride Tickets are available. <br/>
+    We can't wait to see you!</p>
+
+    
+  {% endset%}
+
   {{macro.magSection(
     eyebrow="Park News",
     heading="<h2>1 Check Out Our Expanded Water Park</h2>",
@@ -38,8 +49,18 @@
     content=sectionContent,
     buttonText="Event Details",
     buttonLink="#",
-    variant="greenTheme-fill-yellowBtn"
+    variant="blueTheme-border-blueBtn"
   )}}
+
+    {{macro.ctaSection(
+      heading="2021 Season Passes",
+      subHeading="On Sale Now",
+      buttonText="Buy Season Pass Online",
+      content=ctaSectionContent,
+      buttonLink="#",
+      variant="blueTheme-yellowBtn"
+    )}}
+
 
   
   {# <div class="wrapper">

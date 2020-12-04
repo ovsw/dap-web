@@ -48,7 +48,7 @@ h4 {
 
   @include apply-utility('font', 'headline');
   @include apply-utility('leading', 'flat');
-  
+  font-variant-numeric: lining-nums;
 }
 
 h1, h2 {
@@ -88,6 +88,7 @@ h1, h2 {
 // Import blocks
 @import 'blocks/button';
 @import 'blocks/card';
+@import 'blocks/cta-section';
 @import 'blocks/mag-section';
 @import 'blocks/definition-group';
 @import 'blocks/hamburger-menu';
