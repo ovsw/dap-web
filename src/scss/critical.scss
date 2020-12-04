@@ -6,10 +6,10 @@
 
 @import 'reset';
 
-
 // Global styles start
 :root {
-  --flow-space: #{get-size('600')};
+  --flow-space: 1.875rem;
+  --grid-space: 0.9375rem;
 }
 
 body {
