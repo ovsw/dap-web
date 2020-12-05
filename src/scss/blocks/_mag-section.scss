@@ -45,6 +45,9 @@ $sectionColors: (
 
       margin:0;
     }
+    @media screen and (min-width: 1600px) {
+      margin-left: var(--grid-space);
+    }
 
     img {
       position: absolute;
@@ -74,7 +77,6 @@ $sectionColors: (
       flex-basis: 40%;
       padding: 5rem 7.5rem;
     }
-
     
     h2 {
       font-size: get-size('600');
@@ -98,4 +100,10 @@ $sectionColors: (
 // alternate order of elements for consecutive sections
 .magSection + .magSection {
   flex-direction: row-reverse;
+  .magSection__image {
+    @media screen and (min-width: 1600px) {
+      margin-left: 0!important;
+      margin-right: var(--grid-space)!important;
+    }
+  }
 }
