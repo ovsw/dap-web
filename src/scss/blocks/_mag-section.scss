@@ -107,3 +107,13 @@ $sectionColors: (
     }
   }
 }
+
+.magSection + .magSection + .magSection {
+  flex-direction: row;
+  .magSection__image {
+    @media screen and (min-width: 1600px) {
+      margin-right: 0!important;
+      margin-left: var(--grid-space)!important;
+    }
+  }
+}
