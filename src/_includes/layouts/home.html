@@ -1,6 +1,9 @@
 {% extends "layouts/base.html" %}
 {% set pageCriticalStyles = ['css/home.css'] %}
-{% import 'partials/macros.html' as macro %}
+
+{% from 'components/cta-section.html' import ctaSection %}
+{% from 'components/mag-section.html' import magSection %}
+
 
 {% block content %}
 
@@ -32,7 +35,7 @@
     
   {% endset%}
 
-  {{macro.magSection(
+  {{magSection(
     eyebrow="Park News",
     heading="<h2>1 Check Out Our Expanded Water Park</h2>",
     subHeading="<h3 class='subtitle'>We've added so much more to our water park for families to enjoy!</h3>",
@@ -42,7 +45,7 @@
     variant="greenTheme-fill-yellowBtn"
   )}}
 
-  {{macro.magSection(
+  {{magSection(
     eyebrow="Park News",
     heading="<h2>2 Check Out Our Expanded Water Park</h2>",
     subHeading="<h3 class='subtitle'>We've added so much more to our water park for families to enjoy!</h3>",
@@ -52,14 +55,14 @@
     variant="blueTheme-border-blueBtn"
   )}}
 
-    {{macro.ctaSection(
+  {{ctaSection(
       heading="2021 Season Passes",
       subHeading="On Sale Now",
       buttonText="Buy Season Pass Online",
       content=ctaSectionContent,
       buttonLink="#",
       variant="blueTheme-yellowBtn"
-    )}}
+  )}}
 
 
   

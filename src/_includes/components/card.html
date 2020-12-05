@@ -1,0 +1,24 @@
+
+{# CARD MACRO 
+  @contentTop! = HTML
+  @contentBottom! = HTML
+  @variant = STRING = green | blue | red | yellow | cyan
+  @size = STRING = large | normal
+  @inverted = BOOL
+ #}
+
+{% macro card(
+  contentTop='<h2> Missing Title</h2>', 
+  contentBottom='<p>Missing Content</p>', 
+  variant='green', 
+  size="normal", 
+  inverted="false" ) %}
+  <div class="[ card card--variant-{{variant}} ]" data-size="{{size}}" data-inverted="{{inverted}}">
+    <div class="flow">
+      {{contentTop | safe}}
+    </div>
+    <div  class="[ flow ]">
+      {{contentBottom | safe}}
+    </div>
+  </div>
+{% endmacro %}

@@ -1,4 +1,4 @@
-{% import 'partials/macros.html' as macro %}
+{% from 'components/card.html' import card %}
 
 
 {% set cardBottomContent %}
@@ -21,7 +21,7 @@
 
       <!-- /.hero__bg-image -->
       <div class="hero__content">
-        {{macro.card(
+        {{card(
           variant="green", 
           size="large", 
           contentTop='<h1>Family Fun at an Affordable Price in Tipton, PA</h1> <h2 class="[ subtitle ]">Spend the entire day!</h2>',
