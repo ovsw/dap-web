@@ -6,6 +6,8 @@ $sectionColors: (
 );
 
 .magSection {
+    max-width: 1600px;
+    margin: 0 auto;
     margin-top: var(--grid-space);
     margin-bottom: var(--grid-space);
 
@@ -32,7 +34,7 @@ $sectionColors: (
     }
 
   &__image {
-    flex: 1 100%;
+    flex: 1 1 60%;
     min-height: 18.75rem;
     margin-left: var(--grid-space);
     margin-right: var(--grid-space);
@@ -40,7 +42,7 @@ $sectionColors: (
     position: relative;
 
     @media screen and (min-width: 50rem) {
-      flex: 0 calc(50% - 0.4688rem);
+
       margin:0;
     }
 
@@ -66,14 +68,10 @@ $sectionColors: (
       padding: 1.875rem;
     }
     
-    @media screen and (min-width: 50rem) {
-      flex: 0 1 50%;
-      max-width: calc(50% - 0.9375rem - 0.4688rem );
+    @media screen and (min-width: 800px) {
     }
-    @media screen and (min-width: 75rem) {
-      flex-shrink: 1;
-      min-width: none;
-      flex-basis: 40rem;
+    @media screen and (min-width: 1200px) {
+      flex-basis: 40%;
       padding: 5rem 7.5rem;
     }
 
