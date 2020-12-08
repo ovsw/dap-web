@@ -1,11 +1,13 @@
 const groq = require('groq')
 const client = require('../utils/sanityClient')
 module.exports =  async function() {
-  return await client.fetch(groq`
+  const sanityResponse = await client.fetch(groq`
     *[_id == "siteHome"]{
       ...
     }[0]
-  `)
+  `).catch(err => console.error(err))
+
+  return sanityResponse
 }
 
 // should return (example):
