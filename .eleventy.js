@@ -1,9 +1,15 @@
+// following are required for portable text filter:
+const BlocksToMarkdown = require('@sanity/block-content-to-markdown')
+const client = require('./src/utils/sanityClient.js')
+const serializers = require('./src/utils/serializers')
+
 module.exports = config => {
   // Set directories to pass through to the dist folder
   config.addPassthroughCopy('./src/images/');
   // Copy `./src/js/` to the dist folder
   config.addPassthroughCopy("./src/js/");
 
+  // ////////////////////////////////////
   // process markdown from Sanity
   let markdownIt = require("markdown-it");
   let markdownItAnchor = require("markdown-it-anchor");
@@ -27,6 +33,18 @@ module.exports = config => {
     return md.render(value)
   })
   // end markdown 
+  // ////////////////////////////////////
+
+// ////////////////////////////////////
+// filter to process portable text (block content) - needed for arrays of different sections from the back-end
+
+config.addFilter("blocksToMarkdown", function(sanityBlockContent) {
+  return BlocksToMarkdown(sanityBlockContent, { serializers, ...client.config() })
+})
+
+// end portable text filter
+// ////////////////////////////////////
+
 
   // Nunjucks Filter for converting sring to kebab-case
   config.addNunjucksFilter("makeId", function(value) {
