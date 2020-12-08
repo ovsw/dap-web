@@ -18,7 +18,7 @@
   content='',
   buttonText= '',
   buttonLink= '',
-  image1= '',
+  sanityImage= {},
   themeColor='green', 
   theme="frame",
   variant="green-frame-green-button" 
@@ -70,8 +70,13 @@
 
   <section class="[ ctaSection ]" data-theme-color="{{themeColor}}" data-theme="{{theme}}">
     
-    
-    <img class="[ bgImage bgImage--gray bgImage--withOverlay ]" src="/images/bg/Pappy-Freds-Pizzeria.jpg" alt="MISSING ALT" />
+    {% responsiveImage sanityImage, 
+      "500, 1200, 1600", 
+      "(min-width: 40em) 70vw, 100vw",
+      "[ bgImage bgImage--gray bgImage--withOverlay ]",
+      imageAlt
+    %}
+    {# <img class="[ bgImage bgImage--gray bgImage--withOverlay ]" src="/images/bg/Pappy-Freds-Pizzeria.jpg" alt="MISSING ALT" /> #}
     
     <div class="[ ctaSection__color-overlay ] [ pinned ]"></div>
     

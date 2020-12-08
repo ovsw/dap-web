@@ -9,122 +9,37 @@
 
   {% include "partials/hero.html" %}
 
-
-  {% set sectionContent %}
-    {# <p>Safe Trick or Treat Drive Thru at the park on Saturday - October 31st, 2020 from 4pm-6pm in the DG2Go Parking Lot (water side).</p>
-
-    <p>The first 1200 kids who come through (safely in cars, no walk ups) will receive a bag of Halloween Goodies from our Spooky Sponsors!!!</p> #}
-
-    <ul>
-    <li>Free Parking</li>
-    <li>Free Admission into Ride Park</li>
-    </ul>
-    <p>All-Day Fun Passes and Individual Ride Tickets are available. We can't wait to see you!</p>
-
-    
-  {% endset%}
-
-  {% set ctaSectionContent %}
-    {# <p>Safe Trick or Treat Drive Thru at the park on Saturday - October 31st, 2020 from 4pm-6pm in the DG2Go Parking Lot (water side).</p>
-
-    <p>The first 1200 kids who come through (safely in cars, no walk ups) will receive a bag of Halloween Goodies from our Spooky Sponsors!!!</p> #}
-
-    <p>All-Day Fun Passes and Individual Ride Tickets are available. <br/>
-    We can't wait to see you!</p>
-
-    
-  {% endset%}
-
-  {{magSection(
-    eyebrow="Park News",
-    heading="<h2>1 Check Out Our Expanded Water Park</h2>",
-    subHeading="<h3 class='subtitle'>We've added so much more to our water park for families to enjoy!</h3>",
-    content=sectionContent,
-    buttonText="Event Details",
-    buttonLink="#",
-    variant="greenTheme-fill-yellowBtn"
-  )}}
-
-  {{magSection(
-    eyebrow="Park News",
-    heading="<h2>2 Check Out Our Expanded Water Park</h2>",
-    subHeading="<h3 class='subtitle'>We've added so much more to our water park for families to enjoy!</h3>",
-    content=sectionContent,
-    buttonText="Event Details",
-    buttonLink="#",
-    variant="blueTheme-border-blueBtn"
-  )}}
-
-  {{ctaSection(
-      heading="2021 Season Passes",
-      subHeading="On Sale Now",
-      buttonText="Buy Season Pass Online",
-      content=ctaSectionContent,
-      buttonLink="#",
-      variant="blueTheme-yellowBtn"
-  )}}
-  
-  {% set cardsPlaceholderContent %}
-  <ul>
-    <li>Visit The Kid's Kingdom</li>
-    <li>Enjoy our thrilling midway rides and games</li>
-    <li>Dig into our famous food</li>
-    <li>Cool off at our Water Park</li>
-  </ul>
-{% endset%}
+  <script>console.log({{siteHome | dump | safe}})</script>
 
 
-
-  <section class="[ large-section ]">
-
-      <div class="[ wrapper flow ]">
-        <h2>Card Section</h2>
-        <p class="[ subtitle ]">Lorem ipsum dolor sit amet consectetur adipisicing elit.  </p>
-
-        <div class="large-section__content [ columns-3 ]">
-        <div>
-          {{card(
-            color="green", 
-            headingContent='Family Fun at an Affordable Price in Tipton, PA',
-            topHeadingLvl=3,
-            subHeadingContent='Spend the entire day!',
-            contentBottom=cardsPlaceholderContent,
-            buttonText="Button 1",
-            buttonLink="#"
-            )
-          }}
-        </div>
-        <div>
-          {{card(
-            color="blue", 
-            contentTop='Family Fun at an Affordable Price in Tipton, PA Spend the entire day!',
-            topHeadingLvl=3,
-            contentBottom=cardsPlaceholderContent,
-            buttonText="Button 2",
-            buttonLink="#"
-            )
-          }}
-        </div>
-        <div>
-          {{card(
-            color="red", 
-            contentTop='Family Fun at an Affordable Price in Tipton, PA Spend the entire day!',
-            topHeadingLvl=3,
-            contentBottom=cardsPlaceholderContent,
-             buttonText="Button 3",
-            buttonLink="#"
-            )
-          }}
-        </div>
-        </div>
-      </div>
-
-      
-      <img class="[ bgImage ]" src="/images/bg/Favorite-Shot-of-the-Water-Park.jpg" alt="MISSING ALT" />
-      
-  </section>
-
-  
+  {% for section in siteHome.content.sections %}
+    {% switch section._type %}
+      {% case 'magSection' %}
+        {{magSection(
+          eyebrow = "Park News",
+          heading = section.title,
+          subHeading = section.subtitle,
+          sanityImage = section.image,
+          imageAlt = section.image.alt,
+          content = section.text | blocksToMarkdown | markdownify | safe,
+          buttonText = "Event Details",
+          buttonLink = "#",
+          variant = "greenTheme-fill-yellowBtn"
+        )}}
+      {% case 'ctaSection' %}
+        {{ctaSection(
+            heading = section.title,
+            subHeading = section.subtitle,
+            buttonText = section.button1.text,
+            buttonLink = section.button1.url,
+            sanityImage = section.image,
+            imageAlt = section.image.alt,
+            content = section.text | blocksToMarkdown | markdownify | safe,
+            variant = "blueTheme-yellowBtn"
+        )}}
+    {% endswitch %}
+  {% endfor %}
+ 
   {# <div class="wrapper">
     <article>
       <h1 class="headline" data-color="secondary-light">{{ title }}</h1>
