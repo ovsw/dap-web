@@ -1,6 +1,6 @@
 module.exports = {
   sanity: {
-    projectId: process.env.SANITY_PROJECT_ID || 'y6e2eewm',
+    projectId: process.env.SANITY_PROJECT_ID || '0un18sqx',
     dataset: process.env.SANITY_DATASET || 'production'
   }
 }
