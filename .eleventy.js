@@ -2,6 +2,7 @@
 const BlocksToMarkdown = require('@sanity/block-content-to-markdown')
 const client = require('./src/utils/sanityClient.js')
 const serializers = require('./src/utils/serializers')
+const urlFor = require('./src/utils/imageUrl')
 
 module.exports = config => {
   // Set directories to pass through to the dist folder
@@ -37,14 +38,51 @@ module.exports = config => {
 
 // ////////////////////////////////////
 // filter to process portable text (block content) - needed for arrays of different sections from the back-end
-
 config.addFilter("blocksToMarkdown", function(sanityBlockContent) {
   return BlocksToMarkdown(sanityBlockContent, { serializers, ...client.config() })
 })
-
 // end portable text filter
 // ////////////////////////////////////
 
+// ////////////////////////////////////
+// sanity images shortcodes
+
+config.addShortcode('imageUrlFor', (image, width = "400") => {
+  return urlFor(image)
+      .width(width)
+      .auto('format')
+})
+config.addShortcode('croppedUrlFor', (image, width, height) => {
+  return urlFor(image)
+      .width(width)
+      .height(height)
+      .auto('format')
+})
+
+config.addShortcode('responsiveImage', (image, srcs="320,640,900", sizes="100vw", classList="", alt="") => {
+  const sizeArray = srcs.split(',');
+  const firstSize = sizeArray[0];
+  const lastSize = sizeArray[sizeArray.length - 1];
+  const srcSetContent = sizeArray.map((size) => {
+      const url = urlFor(image)
+          .width(size)
+          .auto('format')
+          .url()
+
+      return `${url} ${size}w`
+  }).join(',')
+
+  return (
+      `<img 
+          src="${urlFor(image).width(firstSize)}"
+          ${classList ? "class='" + classList + "'" : ""}
+          srcset="${srcSetContent}"
+          sizes="${sizes}"
+          width="${lastSize.trim()}" 
+          alt="${alt}" >`
+  )
+})
+// ////////////////////////////////////
 
   // Nunjucks Filter for converting sring to kebab-case
   config.addNunjucksFilter("makeId", function(value) {
