@@ -68,9 +68,11 @@
   {% endfor %}
 
 
-  <div class="[ ctaSection ]" data-theme-color="{{themeColor}}" data-theme="{{theme}}">
+  <section class="[ ctaSection ]" data-theme-color="{{themeColor}}" data-theme="{{theme}}">
     
-    <div class="[ ctaSection__image ] [ pinned ]" style="background-image: url('/images/bg/Pappy-Freds-Pizzeria.jpg')"></div>
+    
+    <img class="[ bgImage bgImage--gray bgImage--withOverlay ]" src="/images/bg/Pappy-Freds-Pizzeria.jpg" alt="MISSING ALT" />
+    
     <div class="[ ctaSection__color-overlay ] [ pinned ]"></div>
     
     <div class="[ wrapper ]">
@@ -105,6 +107,6 @@
         
       </div>
     </div>
-  </div>
+  </section>
 
 {% endmacro %}

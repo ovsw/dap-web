@@ -5,20 +5,34 @@
   @variant = STRING = green | blue | red | yellow | cyan
   @size = STRING = large | normal
   @inverted = BOOL
+  @buttonText = STRING
+  @buttonURL = STRING
  #}
 
 {% macro card(
   contentTop='<h2> Missing Title</h2>', 
   contentBottom='<p>Missing Content</p>', 
-  variant='green', 
+  color='green', 
   size="normal", 
-  inverted="false" ) %}
-  <div class="[ card card--variant-{{variant}} ]" data-size="{{size}}" data-inverted="{{inverted}}">
-    <div class="flow">
-      {{contentTop | safe}}
+  topHeadingLvl= 1,
+  headingContent="",
+  subHeadingContent="",
+  inverted="false",
+  buttonText="",
+  buttonLink=""
+   ) %}
+  <div class="[ card card--color-{{color}} ]" data-size="{{size}}" data-inverted="{{inverted}}">
+    <div class="[ flow ]">
+      {% set subHeadingLvl = topHeadingLvl + 1 %}
+
+      <h{{topHeadingLvl}}>{{headingContent}}</h{{topHeadingLvl}}>
+      <h{{subHeadingLvl}} class="subtitle">{{subHeadingContent}}</h{{subHeadingLvl}}>
     </div>
     <div  class="[ flow ]">
       {{contentBottom | safe}}
+      {% if (buttonText != "") and (buttonLink != "") %}
+        <a href="{{buttonLink}}" class="[ button ] [ button--colored-bg button--color-{{color}} ]">{{buttonText}}</a>
+      {% endif %}
     </div>
   </div>
 {% endmacro %}

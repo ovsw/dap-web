@@ -3,7 +3,7 @@
 
 {% from 'components/cta-section.html' import ctaSection %}
 {% from 'components/mag-section.html' import magSection %}
-
+{% from 'components/card.html' import card %}
 
 {% block content %}
 
@@ -63,7 +63,66 @@
       buttonLink="#",
       variant="blueTheme-yellowBtn"
   )}}
+  
+  {% set cardsPlaceholderContent %}
+  <ul>
+    <li>Visit The Kid's Kingdom</li>
+    <li>Enjoy our thrilling midway rides and games</li>
+    <li>Dig into our famous food</li>
+    <li>Cool off at our Water Park</li>
+  </ul>
+{% endset%}
 
+
+
+  <section class="[ large-section ]">
+
+      <div class="[ wrapper flow ]">
+        <h2>Card Section</h2>
+        <p class="[ subtitle ]">Lorem ipsum dolor sit amet consectetur adipisicing elit.  </p>
+
+        <div class="large-section__content [ columns-3 ]">
+        <div>
+          {{card(
+            color="green", 
+            headingContent='Family Fun at an Affordable Price in Tipton, PA',
+            topHeadingLvl=3,
+            subHeadingContent='Spend the entire day!',
+            contentBottom=cardsPlaceholderContent,
+            buttonText="Button 1",
+            buttonLink="#"
+            )
+          }}
+        </div>
+        <div>
+          {{card(
+            color="blue", 
+            contentTop='Family Fun at an Affordable Price in Tipton, PA Spend the entire day!',
+            topHeadingLvl=3,
+            contentBottom=cardsPlaceholderContent,
+            buttonText="Button 2",
+            buttonLink="#"
+            )
+          }}
+        </div>
+        <div>
+          {{card(
+            color="red", 
+            contentTop='Family Fun at an Affordable Price in Tipton, PA Spend the entire day!',
+            topHeadingLvl=3,
+            contentBottom=cardsPlaceholderContent,
+             buttonText="Button 3",
+            buttonLink="#"
+            )
+          }}
+        </div>
+        </div>
+      </div>
+
+      
+      <img class="[ bgImage ]" src="/images/bg/Favorite-Shot-of-the-Water-Park.jpg" alt="MISSING ALT" />
+      
+  </section>
 
   
   {# <div class="wrapper">

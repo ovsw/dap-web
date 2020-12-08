@@ -8,6 +8,7 @@ $card-themes: (
 $border-width-thick: 0.375rem;
 $border-width-thin: 0.1875rem;
 
+$card-border-radius-small:  6.25rem;
 $card-border-radius-large: 6.25rem;
 
 $padding-h-large: get-size('900');
@@ -29,20 +30,30 @@ $padding-h-large: get-size('900');
   }
   >div:nth-of-type(2) ul {
     padding-left: 1rem;
+    margin-bottom: 0;
   }
   
   // SIZE
   // SMALL CALRD
-  max-width: 20rem;
+  max-width: 35rem;
   >div:nth-of-type(1) {
-    padding: 2.125rem 3.125rem 1.75rem 2.5rem;
-    border-radius: 0 6.25rem 0 0;
+    padding: 2.125rem 75px 1.75rem 2.5rem;
+    border-radius: 0 $card-border-radius-small 0 0;
+    h2 {
+      font-size: get-size('600');
+    }
+    
+    @include media-query('lg') {
+      h2 {
+        font-size: get-size('700');
+      }
+    }
   }
   >div:nth-of-type(2) {
     font-size: get-size('400');
     padding: 1rem;
     border: $border-width-thin solid;
-    border-radius: 0 0 6.25rem 0;
+    border-radius: 0 0 $card-border-radius-small 0;
     
     @include media-query('sm') {
       padding: 2.25rem 2.5rem;
@@ -51,7 +62,7 @@ $padding-h-large: get-size('900');
   
   //  LARGE CARD 
   &[data-size=large] {
-    max-width: 32rem;
+    max-width: 35rem;
     >div:nth-of-type(1) {
       padding: 4.375rem 4.375rem 2.5rem 4.375rem;
       border-radius: 0  3.125rem 0 0;
@@ -90,7 +101,7 @@ $padding-h-large: get-size('900');
   // color variants
 
   @each $name, $color in $card-themes {
-    &.card--variant-#{$name} {
+    &.card--color-#{$name} {
       >div:nth-of-type(1) {
         color: get-color(light);
         background-color: get-color($color);
@@ -104,7 +115,7 @@ $padding-h-large: get-size('900');
 
   &[data-inverted=true] {
     @each $name, $color in $card-themes {
-      &.card--variant-#{$name} {
+      &.card--color-#{$name} {
         >div:nth-of-type(1) {
           color: get-color($color);
           background-color: get-color(light);
