@@ -1,5 +1,5 @@
 {# MAGAZINE SECTION MACRO 
-  @heading! = HTML
+  @heading! = STRING
   @content! =  HTML
   @subHeading = HTML
   @eyebrow = STRING
@@ -17,7 +17,7 @@
   yellowTheme-fill-greenBtn | yellowTheme-fill-blueBtn | yellowTheme-fill-redBtn  
  #}
 {% macro magSection(
-  heading='<h2> Missing Title</h2>', 
+  heading='Missing Title',
   eyebrow, 
   subHeading, 
   content='<p>Missing Content</p>',
@@ -93,11 +93,11 @@
         <p class="[ eyebrow eyebrow--{{buttonColor}} ]">{{eyebrow}}</p>
       {% endif %}
 
-      {{heading | safe}}
+      <h2>{{heading | safe}}</h2>
 
       {% if subHeading %}
         <div class="magSection__subHeadingWrapper">
-          {{subHeading | safe}} 
+          <h3 class="[ subtitle ]">{{subHeading | safe}}</h3> 
         </div>
       {% endif %}
 
