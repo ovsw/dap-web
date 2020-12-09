@@ -24,7 +24,7 @@
           content = section.text | blocksToMarkdown | markdownify | safe,
           buttonText = "Event Details",
           buttonLink = "#",
-          variant = "greenTheme-fill-yellowBtn"
+          variant = section.theme
         )}}
       {% case 'ctaSection' %}
         {{ctaSection(
@@ -35,7 +35,7 @@
             sanityImage = section.image,
             imageAlt = section.image.alt,
             content = section.text | blocksToMarkdown | markdownify | safe,
-            variant = "blueTheme-yellowBtn"
+            variant = section.theme
         )}}
     {% endswitch %}
   {% endfor %}
