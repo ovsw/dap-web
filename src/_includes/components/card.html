@@ -25,8 +25,11 @@
     <div class="[ flow ]">
       {% set subHeadingLvl = topHeadingLvl + 1 %}
 
-      <h{{topHeadingLvl}}>{{headingContent}}</h{{topHeadingLvl}}>
-      <h{{subHeadingLvl}} class="subtitle">{{subHeadingContent}}</h{{subHeadingLvl}}>
+      <h{{topHeadingLvl}}>{{headingContent | safe}}</h{{topHeadingLvl}}>
+      {% if subHeadingContent != '' %}
+        <h{{subHeadingLvl}} class="subtitle">{{subHeadingContent | safe}}</h{{subHeadingLvl}}>
+      {% endif %}
+      
     </div>
     <div  class="[ flow ]">
       {{contentBottom | safe}}
