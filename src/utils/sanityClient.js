@@ -19,8 +19,8 @@ const { sanity } = require('../../client-config')
 
 
 module.exports = sanityClient({
-  ...sanity,
-  useCdn: !process.env.SANITY_READ_TOKEN,
-  // useCdn: true,
+  ...sanity, // brings in projectId and dataset
+  // useCdn: !process.env.SANITY_READ_TOKEN,
+  useCdn: false,
   token: process.env.SANITY_READ_TOKEN
 });
