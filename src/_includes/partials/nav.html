@@ -56,7 +56,9 @@
 
                         {# CASE: banner (like for DG2GO) #}
                         {% if column.banner %}
-                          <div class="banner">{{ column.banner }}</div>                        
+                          <div class="banner">
+                            {% include 'partials/' + column.banner + '.html' %}
+                          </div>                        
                         {% endif %}
                       </li>
                     {%- endfor %}
