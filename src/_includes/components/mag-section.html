@@ -85,7 +85,7 @@
   {% endfor %}
 
 
-  <section class="[ magSection ]" data-theme="{{theme}}" data-theme-color="{{themeColor}}">
+  <section class="[ magSection ] [ wrapper ]" data-theme="{{theme}}" data-theme-color="{{themeColor}}">
     <div class="[ magSection__image ]">
       {% responsiveImage sanityImage, 
         "500, 1200, 1600", 
@@ -95,7 +95,7 @@
       %}
       {# <img src="/images/bg/Favorite-Shot-of-the-Water-Park.jpg" alt="MISSING ALT"/> #}
     </div>
-    <div class="[ magSection__content ] [ flow ]">
+    <div class="[ magSection__content ] [ pannel frame-thick flow ]">
 
       {% if eyebrow %}
         <p class="[ eyebrow eyebrow--{{buttonColor}} ]">{{eyebrow}}</p>
