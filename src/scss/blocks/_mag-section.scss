@@ -6,8 +6,7 @@ $sectionColors: (
 );
 
 .magSection {
-    max-width: 1600px;
-    margin: 0 auto;
+    padding: 0!important;
     margin-top: var(--grid-space);
     margin-bottom: var(--grid-space);
 
@@ -50,32 +49,16 @@ $sectionColors: (
     }
 
     img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      @extend .pinned;
     }
   }
 
   &__content {
     margin: 0 var(--grid-space);
     font-size: 1.125rem;
-    border: 5px solid rgba($color: get-color('secondary'), $alpha: 0.5);
-    padding: calc(var(--grid-space) * 2) var(--grid-space);
     
-    @include media-query('sm') {
-      padding: 1.875rem;
-    }
-    
-    @media screen and (min-width: 800px) {
-    }
     @media screen and (min-width: 1200px) {
       flex-basis: 40%;
-      padding: 5rem 7.5rem;
     }
     
     h2 {
@@ -85,14 +68,6 @@ $sectionColors: (
       @include media-query('md') {
         font-size: get-size('700');
       }
-    }
-
-    &__subHeadingWrapper {
-      padding-top: get-size('400');
-    }
-
-    &__rteWrapper {
-      // padding-top: get-size('400');
     }
   }
 }

@@ -1,0 +1,11 @@
+.pannel {
+  padding: calc(var(--grid-space) * 2) var(--grid-space);
+
+  @include media-query('sm') {
+    padding: 1.875rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 5rem 7.5rem;
+  }
+}

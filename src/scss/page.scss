@@ -9,7 +9,9 @@ $outputTokenCSS: false;
 
 // Pull in blocks
 
-@import 'blocks/hero.scss';
+@import 'blocks/page-header';
+@import 'blocks/big-heading-section';
 
 // Pull in utilities
 @import 'utilities/pinned';
+@import 'utilities/pannel';

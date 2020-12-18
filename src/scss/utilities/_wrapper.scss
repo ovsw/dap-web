@@ -10,19 +10,4 @@
   margin-right: auto;
   position: relative;
   
-  &--full-bleed-mobile {
-    padding: 0;
-    
-    @include media-query('md') {
-      padding: 0 get-size('500');
-    }
-  }
-
-  &--full-bleed-tablet {
-    padding: 0!important;
-    
-    @include media-query('lg') {
-      padding: 0 get-size('500');
-    }
-  }
 }
