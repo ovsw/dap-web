@@ -5,6 +5,7 @@
 {% from 'components/cta-section.html' import ctaSection %}
 {% from 'components/mag-section.html' import magSection %}
 {% from 'components/card.html' import card %}
+{% from 'components/table-section.html' import tableSection %}
 
 {% block content %}
 
@@ -68,6 +69,8 @@
             content = section.text | blocksToMarkdown | markdownify | safe,
             variant = section.theme
         )}}
+      {% case 'tableSection' %}
+        {{tableSection(sectionData = section)}}
     {% endswitch %}
 {% endfor %}
 
