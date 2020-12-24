@@ -1,6 +1,6 @@
 .large-section {
   position: relative;
-  padding: get-size('major') 0 ;
+  padding: get-size('xl') 0 ;
   margin-top: calc(var(--grid-space) * -1);
 
   .wrapper > h2 {
@@ -21,8 +21,8 @@
   &__content {
     margin-top: get-size('900')!important;
     @include media-query('md') {
-      margin-top: get-size('major')!important;
-      padding-bottom: get-size('major')!important;
+      margin-top: get-size('xl')!important;
+      padding-bottom: get-size('xl')!important;
     }
     @include media-query('lg') {
       padding: 0 5rem;

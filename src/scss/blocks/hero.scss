@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   @include media-query('md') {
-    padding: get-size('major') 0;
+    padding: get-size('xl') 0;
   }
 
   &__bg-image {

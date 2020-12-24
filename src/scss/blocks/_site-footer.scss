@@ -157,7 +157,7 @@
     font-size: get-size('330');
 
     @include media-query('md') {
-      margin-top: get-size('major');
+      margin-top: get-size('xl');
     }
 
     &-content {
