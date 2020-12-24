@@ -6,6 +6,7 @@
 {% from 'components/mag-section.html' import magSection %}
 {% from 'components/card.html' import card %}
 {% from 'components/table-section.html' import tableSection %}
+{% from 'components/card-section.html' import cardSection %}
 
 {% block content %}
 
@@ -42,10 +43,16 @@
   </div>
 </div>
 
+{% set bigHeaderCounter = 0 %}
+
 {% for section in sitePage.content.sections %}
   {% switch section._type %}
       {% case 'bigHeading' %}
-       {{bigHeadingSection(title = section.title) }}
+        {% set bigHeaderCounter = bigHeaderCounter + 1 %}
+        {% set bigHeaderNumberedString %}
+        {{bigHeaderCounter}}. {{section.title}} 
+        {% endset %}
+       {{bigHeadingSection(title = bigHeaderNumberedString) }}
       {% case 'magSection' %}
         {{magSection(
           eyebrow = "Park News",
@@ -71,6 +78,8 @@
         )}}
       {% case 'tableSection' %}
         {{tableSection(sectionData = section)}}
+      {% case 'cardSection' %}
+        {{cardSection(sectionData = section)}}
     {% endswitch %}
 {% endfor %}
 

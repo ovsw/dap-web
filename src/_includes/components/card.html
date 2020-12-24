@@ -12,7 +12,7 @@
 {% macro card(
   contentTop='<h2> Missing Title</h2>', 
   contentBottom='<p>Missing Content</p>', 
-  color='green', 
+  variant='greenTheme', 
   size="normal", 
   topHeadingLvl= 1,
   headingContent="",
@@ -21,20 +21,35 @@
   buttonText="",
   buttonLink=""
    ) %}
-  <div class="[ card card--color-{{color}} ]" data-size="{{size}}" data-inverted="{{inverted}}">
-    <div class="[ flow ]">
+
+  {% set cardThemes = [
+    {'name': 'greenTheme', 'color': 'green' },
+    {'name': 'blueTheme', 'color': 'blue' },
+    {'name': 'redTheme', 'color': 'red' }
+  ]%}
+
+  {% set cardColor = 'green' %}
+
+  {% for theme in cardThemes %}
+    {% if theme.name in variant %}
+      {% set cardColor = theme.color %}
+    {% endif %}
+  {% endfor %}
+
+  <div class="[ card card--color-{{cardColor}} ]" data-size="{{size}}" data-inverted="{{inverted}}">
+    <div class="card__header [ flow ]">
       {% set subHeadingLvl = topHeadingLvl + 1 %}
 
-      <h{{topHeadingLvl}}>{{headingContent | safe}}</h{{topHeadingLvl}}>
+      <h{{topHeadingLvl}}>{{headingContent | safe}} </h{{topHeadingLvl}}>
       {% if subHeadingContent != '' %}
         <h{{subHeadingLvl}} class="subtitle">{{subHeadingContent | safe}}</h{{subHeadingLvl}}>
       {% endif %}
       
     </div>
-    <div  class="[ flow ]">
+    <div  class="card__body [ flow ]">
       {{contentBottom | safe}}
       {% if (buttonText != "") and (buttonLink != "") %}
-        <a href="{{buttonLink}}" class="[ button ] [ button--colored-bg button--color-{{color}} ]">{{buttonText}}</a>
+        <a href="{{buttonLink}}" class="[ button ] [ button--colored-bg button--color-{{cardColor}} ]">{{buttonText}}</a>
       {% endif %}
     </div>
   </div>
