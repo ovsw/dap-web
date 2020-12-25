@@ -102,11 +102,9 @@
         </div>
 
         {# BUTTONS #}
-        {% if buttonText != "" %}
+        {% if buttonText %}
         <div class="ctaSection__rightColumn">      
-          {% if buttonText != "" %}
             <a href="{{buttonLink}}" class="[ button ] [ button--{{buttonStyle}} button--color-{{buttonColor}} ]">{{buttonText}}</a>
-          {% endif %}
         </div>
         {% endif %}
         
