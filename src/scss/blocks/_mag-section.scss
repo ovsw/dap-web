@@ -30,6 +30,12 @@ $sectionColors: (
           color: get-color('light');
         }
       }
+      &[data-theme=fill][data-theme-color=yellow] {
+        .magSection__content {
+          background-color: $color;
+          color: get-color('dark');
+        }
+      }
     }
 
   &__image {
