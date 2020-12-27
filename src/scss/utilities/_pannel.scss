@@ -5,6 +5,10 @@
     padding: 1.875rem;
   }
 
+  @include media-query('md') {
+    padding: get-size('xl');;
+  }
+
   @media screen and (min-width: 1200px) {
     padding: 5rem 7.5rem;
   }
