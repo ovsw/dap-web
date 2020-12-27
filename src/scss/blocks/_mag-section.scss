@@ -79,22 +79,13 @@ $sectionColors: (
 }
 
 // alternate order of elements for consecutive sections
-.magSection + .magSection {
+
+.magSection:nth-child(even) {
   flex-direction: row-reverse;
   .magSection__image {
     @media screen and (min-width: 1600px) {
       margin-left: 0!important;
       margin-right: var(--grid-space)!important;
-    }
-  }
-}
-
-.magSection + .magSection + .magSection {
-  flex-direction: row;
-  .magSection__image {
-    @media screen and (min-width: 1600px) {
-      margin-right: 0!important;
-      margin-left: var(--grid-space)!important;
     }
   }
 }
