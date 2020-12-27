@@ -1,23 +1,6 @@
-
   {% from 'components/card.html' import card as singleCard %}
 
-{# CTA SECTION MACRO 
-  @heading! = HTML
-  @content! =  HTML
-  @subHeading = HTML
-  @eyebrow = STRING
-  @color = STRING = green | blue | red | yellow | cyan
-  @theme = STRING = frame | fill
-  @variant = STRING = 
-  yellowTheme-redBtn | yellowTheme-greenBtn | yellowTheme-blueBtn
-  greenTheme-yellowBtn | greenTheme-lightBtn 
-  blueTheme-yellowBtn | blueTheme-lightBtn 
-  redTheme-yellowBtn | redTheme-lightBtn 
-  
- #}
-{% macro cardSection(sectionData = {}) %}
-  
-  {% set cardCount = sectionData.cards | length %}
+{% set cardCount = section.cards | length %}
   {% if (cardCount % 2 == 0) %}
     {% set cardCountType = 'even' %}
   {% else %}
@@ -27,14 +10,14 @@
   <section class="cardSection">
     <div class="[ wrapper ]">
 
-      <h2>{{sectionData.title}}</h2>
+      <h2>{{section.title}}</h2>
 
       <div class="
         cardSection__wrap 
         cardSection__{{cardCount}} 
         cardSection__{{cardCountType}} 
         [ gap-top-xl ]">
-        {% for card in sectionData.cards %}
+        {% for card in section.cards %}
             {{singleCard(
             variant=card.theme, 
             headingContent=card.title,
@@ -48,5 +31,3 @@
   
     </div>
   </section>
-
-{% endmacro %}

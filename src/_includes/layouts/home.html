@@ -1,8 +1,7 @@
 {% extends "layouts/base.html" %}
 {% set pageCriticalStyles = ['css/home.css'] %}
 
-{% from 'components/cta-section.html' import ctaSection %}
-{% from 'components/mag-section.html' import magSection %}
+
 {% from 'components/card.html' import card %}
 
 {% block content %}
@@ -12,7 +11,7 @@
   <script>console.log({{siteHome | dump | safe}})</script>
 
 
-  {% for section in siteHome.content.sections %}
+  {# {% for section in siteHome.content.sections %}
     {% switch section._type %}
       {% case 'magSection' %}
         {{magSection(
@@ -38,7 +37,7 @@
             variant = section.theme
         )}}
     {% endswitch %}
-  {% endfor %}
+  {% endfor %} #}
 
   <section class="[ large-section ]">
 

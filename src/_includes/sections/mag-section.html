@@ -1,0 +1,36 @@
+{% extends "sections/common/panels-section.html" %}
+
+{% block sectionImage %}
+  {% responsiveImage section.image, 
+        "500, 1200, 1600", 
+        "(min-width: 40em) 70vw, 100vw",
+        "",
+        section.image.alt
+      %}
+{% endblock %}
+
+{% block sectionCopy %}
+  {% if section.eyebrow %}
+        <p class="[ eyebrow eyebrow--{{buttonColor}} ]">{{section.eyebrow}}</p>
+      {% endif %}
+
+      <h2>{{section.title | safe}}</h2>
+
+      {% if section.subtitle %}
+        <div class="magSection__subHeadingWrapper">
+          <h3 class="[ subtitle ]">{{section.subtitle | safe}}</h3> 
+        </div>
+      {% endif %}
+
+      {# RTE CONTENT #}
+      <div class="magSection__rteWrapper [ flow ]">
+        {{section.text | blocksToMarkdown | markdownify | safe}} 
+      </div>
+
+      {# BUTTONS #}
+      {% if section.button1.text %}
+      <div class="magSection__buttonWrapper">      
+          <a href="{{section.button1.url}}" class="[ button ] [ button--{{buttonStyle}} button--color-{{buttonColor}} ]">{{section.button1.text}}</a>
+      </div>
+      {% endif %}
+{% endblock %}

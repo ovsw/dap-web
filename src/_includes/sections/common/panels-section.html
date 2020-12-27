@@ -1,12 +1,5 @@
 {# MAGAZINE SECTION MACRO 
-  @heading! = STRING
-  @content! =  HTML
-  @subHeading = HTML
-  @sanityImage = OBJ (sanity image object)
-  @eyebrow = STRING
-  @color = STRING = green | blue | red | yellow | cyan
-  @theme = STRING = frame | fill
-  @variant = STRING = 
+  @section.theme = STRING = 
   greenTheme-frame-greenBtn | greenTheme-frame-redBtn | greenTheme-frame-blueBtn |
   blueTheme-frame-blueBtn | blueTheme-frame-greenBtn | blueTheme-frame-redBtn | 
   redTheme-frame-redBtn | redTheme-frame-greenBtn | redTheme-frame-blueBtn |
@@ -17,20 +10,6 @@
   redTheme-fill-whiteBtn | redTheme-fill-yellowBtn | 
   yellowTheme-fill-greenBtn | yellowTheme-fill-blueBtn | yellowTheme-fill-redBtn  
  #}
-{% macro magSection(
-  heading='Missing Title',
-  eyebrow, 
-  subHeading, 
-  sanityImage= {},
-  imageAlt='MISSING ALT TAG',
-  content='<p>Missing Content</p>',
-  buttonText= '',
-  buttonLink= '',
-  themeColor='green', 
-  theme="frame",
-  variant="green-frame-green-button" 
-  
-  ) %}
 
   {# default to green bordered secttion, with green bg button (light text ) #}
   {% set theme = 'frame' %} 
@@ -41,10 +20,10 @@
   {# SET VARS TO RENDER SECTION BASED ON SELECTED THEME #}
 
   {# set the theme of the section and button (frame or solid bg) #}
-  {% if 'fill' in variant %}
+  {% if 'fill' in section.theme %}
     {% set theme = 'fill' %}
     {# exeption for yellow color, which should be considered light #}
-    {% if ('yellowTheme' in variant) or ('yellowBtn' in variant) %}
+    {% if ('yellowTheme' in section.theme) or ('yellowBtn' in section.theme) %}
       {% set buttonStyle = 'colored-bg' %}
     {% else %}
     {# for all colors, set buttons to light bg (colored text) #}
@@ -63,7 +42,7 @@
   ]%}
   {# identify the theme and set the themeColor var to corresponding value #}
   {% for item in magSectionThemes %}
-    {% if item.name in variant %}
+    {% if item.name in section.theme %}
       {% set themeColor = item.color %}
     {% endif %}
   {% endfor %}
@@ -79,7 +58,7 @@
   ]%}
   {# identify the button color and set the buttonColor var to corresponding value #}
   {% for item in buttonColors %}
-    {% if item.name in variant %}
+    {% if item.name in section.theme %}
       {% set buttonColor = item.color %}
     {% endif %}
   {% endfor %}
@@ -87,46 +66,15 @@
 
   <section class="[ magSection ] [ wrapper ]" data-theme="{{theme}}" data-theme-color="{{themeColor}}">
     <div class="[ magSection__image ]">
-      {% responsiveImage sanityImage, 
-        "500, 1200, 1600", 
-        "(min-width: 40em) 70vw, 100vw",
-        "",
-        imageAlt
-      %}
-      {# <img src="/images/bg/Favorite-Shot-of-the-Water-Park.jpg" alt="MISSING ALT"/> #}
+      {% block sectionImage %}
+        <h1>Missing Image</h1>
+      {% endblock %}
     </div>
     <div class="[ magSection__content ] [ pannel frame-thick flow ]">
 
-      {% if eyebrow %}
-        <p class="[ eyebrow eyebrow--{{buttonColor}} ]">{{eyebrow}}</p>
-      {% endif %}
-
-      <h2>{{heading | safe}}</h2>
-
-      {% if subHeading %}
-        <div class="magSection__subHeadingWrapper">
-          <h3 class="[ subtitle ]">{{subHeading | safe}}</h3> 
-        </div>
-      {% endif %}
-
-      {# RTE CONTENT #}
-      <div class="magSection__rteWrapper [ flow ]">
-        {{content | safe}} 
-      </div>
-
-      {# BUTTONS #}
-      {% if buttonText != "" %}
-      <div class="magSection__buttonWrapper">      
-        {% if buttonText != "" %}
-          <a href="{{buttonLink}}" class="[ button ] [ button--{{buttonStyle}} button--color-{{buttonColor}} ]">{{buttonText}}</a>
-        {% endif %}
-        {# {% if buttonText1 != "" %}
-          <a href="{{buttonLink2}}" class="[ button ] [ button--colored-bg button--color-{{themeColor}} ]">{{buttonText2}}</a>
-        {% endif %} #}
-      </div>
-      {% endif %}
+      {% block sectionCopy %}
+        <h1>Missing Copy</h1>
+      {% endblock %}
       
     </div>
   </section>
-
-{% endmacro %}
