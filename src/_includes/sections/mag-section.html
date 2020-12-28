@@ -1,12 +1,32 @@
 {% extends "sections/common/panels-section.html" %}
 
 {% block sectionImage %}
-  {% responsiveImage section.image, 
+  {# {% responsiveImage section.image, 
         "500, 1200, 1600", 
         "(min-width: 40em) 70vw, 100vw",
         "",
         section.image.alt
-      %}
+      %} #}
+  {# <img src="https://cdn.sanity.io/images/0un18sqx/production/db810fb76a0a80a2bc9f002e0f31b571c66e794d-633x1030.jpg?w=500" 
+  srcset="https://cdn.sanity.io/images/0un18sqx/production/db810fb76a0a80a2bc9f002e0f31b571c66e794d-633x1030.jpg?w=500&amp;auto=format 500w,
+  https://cdn.sanity.io/images/0un18sqx/production/db810fb76a0a80a2bc9f002e0f31b571c66e794d-633x1030.jpg?w=%201200&amp;auto=format  1200w,
+  https://cdn.sanity.io/images/0un18sqx/production/db810fb76a0a80a2bc9f002e0f31b571c66e794d-633x1030.jpg?w=%201600&amp;auto=format  1600w" 
+  sizes="(min-width: 40em) 70vw, 100vw" width="1600" 
+  alt="{{section.image.alt}}"
+  > #}
+   {# <img src="{% croppedUrlFor section.image, '500', '400' %}" 
+  srcset="{% croppedUrlFor section.image, '500', '400' %} 500w,
+  {% croppedUrlFor section.image, '1200', '600' %}  1200w,
+  {% croppedUrlFor section.image, '1600', '800' %}  1600w" 
+  sizes="(min-width: 40em) 70vw, 100vw"
+  alt="{{ section.image.alt}}"
+  > #}
+  <img src="{% croppedUrlFor section.image, '500', '400' %}" 
+  srcset="{% croppedUrlFor section.image, '600', '400' %} 500w,
+  {% croppedUrlFor section.image, '900', '600' %}  960w"
+  sizes="(min-width: 40em) 50vw, 100vw"
+  alt="{{ section.image.alt}}"
+  >
 {% endblock %}
 
 {% block sectionCopy %}
