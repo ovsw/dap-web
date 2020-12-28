@@ -6,7 +6,7 @@
   }
 
   @include media-query('md') {
-    padding: get-size('xl');;
+    padding: get-size('900');;
   }
 
   @media screen and (min-width: 1200px) {

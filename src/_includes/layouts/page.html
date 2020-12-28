@@ -37,6 +37,7 @@
 </div>
 
 {% set bigHeaderCounter = 0 %}
+{% set qaSectionCounter = 0 %}
 
 
 {% for section in sitePage.content.sections %}
@@ -60,6 +61,10 @@
   {% endif %}
   {% if section._type == 'cardSection' %}
     {% include "sections/card-section.html" %}
+  {% endif %}
+  {% if section._type == 'faqSection' %}
+    {% set qaSectionCounter = qaSectionCounter + 1 %}
+    {% include "sections/faq-section.html" %}
   {% endif %}
 
 
