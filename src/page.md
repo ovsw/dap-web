@@ -7,5 +7,5 @@ pagination:
   data: sitePages
   size: 1
   addAllPagesToCollections: true
-permalink: "{{ sitePage.content.slug.current | slug }}/index.html"
+permalink: "{{ sitePage.content.slug.current }}/index.html"
 ---
