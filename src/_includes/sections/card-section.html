@@ -23,7 +23,9 @@
             headingContent=card.title,
             subHeadingContent=card.subTitle,
             topHeadingLvl=3,
-            contentBottom=card.text | blocksToMarkdown | markdownify | safe
+            contentBottom=card.text | blocksToMarkdown | markdownify | safe,
+            buttonText=card.button.text,
+            buttonLink=card.button.url
             )
             }}
         {% endfor %}
