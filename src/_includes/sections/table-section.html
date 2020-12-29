@@ -2,7 +2,7 @@
   <div class="[ wrapper ]">
 
     <div role="region" aria-labelledby="{{section.title | slug}}" tabindex="0">
-        <table class="picnicComparisonTable">
+        <table class="picnicComparisonTable tableSection__{{section.sectionTable.rows[0].cells | length}}columns ">
         <caption id="{{section.title | slug}}">{{section.title}}</caption>
 
         <thead>

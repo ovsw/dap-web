@@ -22,10 +22,14 @@
   margin: var(--grid-space) 0;
 
   table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      border: 0.1em solid #d6d6d6;
+    margin: 1em 0;
+    border-collapse: collapse;
+    border: 0.1em solid #d6d6d6;
+    
+    @include media-query('lg') {
+      width: 100%;
     }
+  }
 
   caption {
     text-align: left;
