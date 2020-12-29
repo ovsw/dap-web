@@ -1,4 +1,5 @@
 .cardSection {
+  position: relative;
   padding: get-size('2xl') 0;
   text-align: center;
 
@@ -17,5 +18,14 @@
           max-width: 500px;
         
       }
+  }
+
+  &__image {
+    opacity: 24%;
+    z-index: -1;
+
+    img {
+      object-fit: cover;
+    }
   }
 }

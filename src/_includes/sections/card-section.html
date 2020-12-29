@@ -7,29 +7,36 @@
     {% set cardCountType = 'odd' %}
   {% endif %}
 
-  <section class="cardSection">
-    <div class="[ wrapper ]">
+<section class="cardSection">
+  <div class="[ wrapper ]">
 
-      <h2>{{section.title}}</h2>
+    <h2>{{section.title}}</h2>
 
-      <div class="
-        cardSection__wrap 
-        cardSection__{{cardCount}} 
-        cardSection__{{cardCountType}} 
-        [ gap-top-xl ]">
-        {% for card in section.cards %}
-            {{singleCard(
-            variant=card.theme, 
-            headingContent=card.title,
-            subHeadingContent=card.subTitle,
-            topHeadingLvl=3,
-            contentBottom=card.text | blocksToMarkdown | markdownify | safe,
-            buttonText=card.button.text,
-            buttonLink=card.button.url
-            )
-            }}
-        {% endfor %}
-      </div>
-  
+    <div class="
+      cardSection__wrap 
+      cardSection__{{cardCount}} 
+      cardSection__{{cardCountType}} 
+      [ gap-top-xl ]">
+      {% for card in section.cards %}
+          {{singleCard(
+          variant=card.theme, 
+          headingContent=card.title,
+          subHeadingContent=card.subTitle,
+          topHeadingLvl=3,
+          contentBottom=card.text | blocksToMarkdown | markdownify | safe,
+          buttonText=card.button.text,
+          buttonLink=card.button.url
+          )
+          }}
+      {% endfor %}
     </div>
-  </section>
+
+
+  </div>
+    {% responsiveImage section.image, 
+        "500, 1200, 1600", 
+        "(min-width: 40em) 70vw, 100vw",
+        "cardSection__image bgImage",
+        section.image.alt
+      %}
+</section>

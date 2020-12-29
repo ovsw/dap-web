@@ -49,7 +49,7 @@
     <div  class="card__body [ flow ]">
       {{contentBottom | safe}}
       <div class="card__buttonWrapper">
-        {% if (buttonText != "") %}
+        {% if (buttonText) %}
           <a href="{{buttonLink}}" class="[ button ] [ button--colored-bg button--color-{{cardColor}} ]">{{buttonText}}</a>
         {% endif %}
       </div>

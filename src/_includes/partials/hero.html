@@ -1,4 +1,4 @@
-{% from 'components/card.html' import card %}
+  {% from 'components/card.html' import card as singleCard %}
 
 
 {% set cardBottomContent %}
@@ -8,27 +8,36 @@
     <li>Dig into our famous food</li>
     <li>Cool off at our Water Park</li>
   </ul>
-  <div>
-    <a href="#" class="[ button ] [ button--colored-bg button--color-green ]">Buy Pass Online &amp; Save</a>
-  </div>
+  
 {% endset%}
 
-<div class="hero">
-      <div class="hero__bg-image">
+<style>  
+  .hero {
+    background-image: url('{% croppedUrlFor siteHome.content.hero.image, "400", "400" %}')
+  }
+  @media screen and (min-width: 1600px) {
+    .hero {
+      background-image: url('{% croppedUrlFor siteHome.content.hero.image, "1600", "774" %}')
+    }
+  }
+</style>
 
-      </div>
+<div class="hero">
+      
   <div class="wrapper ">
 
-      <!-- /.hero__bg-image -->
       <div class="hero__content">
-        {# {{card(
+        {{singleCard(
           variant="green", 
           size="large", 
-          headingContent='Family Fun at an Affordable Price in Tipton, PA',
-          subHeadingContent='Spend the entire day!',
+          headingContent= siteHome.content.hero.title,
+          subHeadingContent= siteHome.content.hero.subTitle,
           topHeadingLvl=1,
+          contentBottom= siteHome.content.hero.text | blocksToMarkdown | markdownify | safe,
+          buttonText= siteHome.content.hero.button.text,
+          buttonLink= siteHome.content.hero.button.url
           )
-        }} #}
+        }}
       </div>
       <!-- /.hero__content -->
 

@@ -1,19 +1,16 @@
 .hero {
   position: relative;
+  background-position: center center;
+  background-size: cover;
+  min-height: 400px;
+  padding: get-size('800') 0;
+
+
   @include media-query('md') {
     padding: get-size('xl') 0;
   }
-
-  &__bg-image {
-    background: url('/images/bg/Swing-Buggy-Ride.jpg') no-repeat top center;
-    background-size: cover;
-    min-height: 400px;
-    
-    @extend .md\:pinned;
-  }
  
   &__content {
-    margin-top: -200px;
 
     @include media-query('md') {
       margin-top: 0;
