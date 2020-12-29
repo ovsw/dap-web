@@ -66,6 +66,9 @@
     {% set qaSectionCounter = qaSectionCounter + 1 %}
     {% include "sections/faq-section.html" %}
   {% endif %}
+  {% if section._type == 'menuSection' %}
+    {% include "sections/menu-section.html" %}
+  {% endif %}
 
 
   {# {% switch section._type %}
