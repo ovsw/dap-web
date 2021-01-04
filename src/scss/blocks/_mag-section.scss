@@ -27,7 +27,7 @@ $sectionColors: (
       &[data-theme=fill][data-theme-color=#{$name}] {
         .magSection__content {
           background-color: $color;
-          color: get-color('light');
+          color: get-color('light-glare');
         }
       }
       &[data-theme=fill][data-theme-color=yellow] {

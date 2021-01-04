@@ -5,6 +5,7 @@
   width: 100%;
   z-index: 1000;
   background: white;
+  border-bottom: 2px solid get-color('primary');
 
   @include media-query('lg') {
     padding: 0;

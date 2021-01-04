@@ -38,8 +38,8 @@ $sectionColors: (
     z-index: 20;
 
     section[data-theme=dark] & {
-      color: get-color('light');
-      border: 3px solid rgba($color: get-color('light'), $alpha: 0.5);
+      color: get-color('light-glare');
+      border: 3px solid rgba($color: get-color('light-glare'), $alpha: 0.5);
     }
     section[data-theme=light] & {
       color: get-color('dark');

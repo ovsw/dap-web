@@ -1,5 +1,5 @@
 $heading-height: 5.4rem;
-$submenu-bg-color: get-color('light');
+$submenu-bg-color: get-color('light-glare');
 $mobileMenuItemBorder: 1px solid rgba(get-color('secondary'), 0.3);
 $main-menu-colors: (
   '1': get-color('primary'),
@@ -19,7 +19,7 @@ $main-menu-colors: (
   height: calc(100vh - #{$heading-height});
   top: $heading-height;
   left: 0;
-  background-color: get-color('light');
+  background-color: get-color('light-glare');
   overflow-x: hidden;
   overflow-y: auto;
   transform: translateX(100%);

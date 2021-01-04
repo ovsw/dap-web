@@ -99,11 +99,11 @@ $padding-h-large: get-size('900');
   // COLOR
   // defaults
   >div:nth-of-type(1) {
-    color: get-color('light');
+    color: get-color('light-glare');
     background-color: get-color('primary');
   }
   >div:nth-of-type(2) {
-    background-color: get-color('light');
+    background-color: get-color('light-glare');
     border-color: get-color('primary')!important;
   }
   // color variants
@@ -115,7 +115,7 @@ $padding-h-large: get-size('900');
         background-color: get-color($color);
       }
       >div:nth-of-type(2) {
-        background-color: get-color('light');
+        background-color: get-color('light-glare');
         border-color: get-color($color)!important;
       }
     }
@@ -130,7 +130,7 @@ $padding-h-large: get-size('900');
         }
         >div:nth-of-type(2) {
           background-color: get-color($color);
-          color: get-color('light');
+          color: get-color('light-glare');
           border-color: get-color($color)!important;
         }
       }

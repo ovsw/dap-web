@@ -13,7 +13,7 @@
 }
 
 body {
-  background: get-color('light');
+  background: get-color('light-glare');
   color: get-color('dark');
   line-height: 1.5;
   font-size: get-size('500');
@@ -62,7 +62,7 @@ h1, h2 {
 // High contrast selection because it can help visually-impaired
 // folks read the text easier
 ::selection {
-  color: get-color('light');
+  color: get-color('light-glare');
 
   // We set this as an RGBA because that’s how you get a solid color, by using 0.99
   // alpha value. Browsers are wild.

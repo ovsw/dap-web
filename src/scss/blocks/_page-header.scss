@@ -9,7 +9,7 @@
 
   &__content {
     
-    background-color: get-color('light');
+    background-color: get-color('light-glare');
     text-align: center;
 
     @include media-query('md') {
