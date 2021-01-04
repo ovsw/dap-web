@@ -38,7 +38,8 @@ $gorko-colors: (
   'dark': #36342E,
   'dark-shade': #343432,
   'dark-glare': #42413b, 
-  'light': #FFFDF5,
+  // 'light': #FFFDF5,
+  'light': #F4F4F4,
   'light-shade': #FFFDF5,
   'light-glare': #FFF,
   'primary': #2D8262,
@@ -55,7 +56,8 @@ $gorko-colors: (
   'quaternary-glare': #0EADC2,
   'accent': #DB3232,
   'accent-shade': #CC1616,
-  'accent-glare': #FF6E6E 
+  'accent-glare': #FF6E6E,
+  'muted': #757575
 );
 
 /**

@@ -1,0 +1,58 @@
+{% macro gridCard(
+  titile='<h2> Missing Title</h2>',
+  eyebrow='',
+  eyebrowColor='green',
+  subtitle='',
+  description='', 
+  titleHeadingLvl=0,
+  inverted="false",
+  image,
+  alt,
+  buttonText="",
+  buttonLink=""
+) %}
+
+
+  <div class="[ gridCard ] flow-space-200" >
+
+    <div class="gridCard__image">
+        {% if image %}
+          <img src="{% croppedUrlFor image, '500', '400' %}" 
+            srcset="{% croppedUrlFor image, '600', '400' %} 500w,
+            {% croppedUrlFor image, '900', '600' %}  960w"
+            sizes="(min-width: 40em) 50vw, 100vw"
+            alt="{{ alt }}"
+          >
+        {% endif %}
+    </div>
+
+    <div  class="gridCard__body [ flow ]">
+
+      <div class="gridCard__heading [ flow ]">
+          {% if eyebrow %}
+            <span class="gridCard__eyebrow {{eyebrowColor}} [ eyebrow ]">{{ eyebrow | safe}}</span>
+          {% endif %}
+          {% if titleHeadingLvl > 0 %}
+            <h{{titleHeadingLvl}}>{{titile | safe}}</h{{titleHeadingLvl}}>
+          {% else %}
+            <strong class="gridCard__title">{{titile | safe}}</strong>
+          {% endif %}
+          {% if subtitle %}
+            <span class="gridCard__subtitle">{{ subtitle | safe}}</span>
+          {% endif %}
+      </div>
+
+      {% if description %}
+        {{ description | safe}}
+      {% endif %}
+
+      {% if (buttonText) %}
+      <div class="gridCard__buttonWrapper">
+          <a href="{{buttonLink}}" class="">{{buttonText | safe}}</a>
+      </div>
+      {% endif %}
+
+    </div>
+    
+  </div>
+{% endmacro %}

@@ -1,0 +1,37 @@
+.gridCard {
+  background-color: get-color('light-glare');
+  border-radius: 0  40px 40px 0;
+  overflow: hidden;
+
+  &__body {
+    padding: get-size('400');
+  }
+
+  &__title {
+    font-size: get-size('600');
+  }
+
+  &__subtitle{
+    color: get-color('muted');
+  }
+
+  &__eyebrow {
+    font-size: get-size('300');
+    letter-spacing: 1px;
+    &.red {
+      color: get-color('accent');
+    }
+    &.green {
+      color: get-color('primary');
+    }
+    &.blue {
+      color: get-color('secondary');
+    }
+  }
+
+  &__buttonWrapper a{
+    color: get-color('muted');
+    font-size: get-size('350');
+  }
+
+}
