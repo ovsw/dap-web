@@ -1,5 +1,5 @@
 ---
-  title: 'Home Page'
+  title: 'Rides'
   layout: 'layouts/rides.html'
 ---
 
