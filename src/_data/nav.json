@@ -122,6 +122,10 @@
         "name": "About Us",
         "children": [
           {
+            "name": "News",
+            "url": "/news/"
+          },
+          {
             "name": "Our History",
             "url": "/our-history/"
           },
