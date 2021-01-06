@@ -14,8 +14,10 @@ $outputTokenCSS: false;
 @import 'blocks/faq-section';
 @import 'blocks/grid-card';
 @import 'blocks/menu-section';
+@import 'blocks/news-grid';
 
 // Pull in utilities
 @import 'utilities/pinned';
 @import 'utilities/pannel';
 @import 'utilities/table';
+@import 'utilities/tag';

@@ -58,7 +58,7 @@
           },
           {
           "name": "Food News",
-            "url": "/famous-food/food-news/"
+            "url": "/news/food/"
           },
           {
           "name": "The DelGrosso Food Tradition",
@@ -109,11 +109,7 @@
         "children": [
           {
             "name": "Upcoming Events",
-            "url": "/events/"
-          },
-          {
-            "name": "Event Calendar",
-            "url": "/events/calendar/"
+            "url": "/news/events/"
           },
           {
             "name": "Event Archive",
@@ -180,11 +176,11 @@
         "children": [
           {
             "name": "Closures",
-            "url": "/closures/"
+            "url": "/news/closures/"
           },
           {
             "name": "Park News",
-            "url": "/news/"
+            "url": "/news/park/"
           },
           {
             "name": "Events",

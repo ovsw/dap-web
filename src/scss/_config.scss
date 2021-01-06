@@ -98,6 +98,11 @@ $gorko-config: (
     'output': 'responsive',
     'property': 'margin-top',
   ),
+  'gap-bottom': (
+    'items': $gorko-size-scale,
+    'output': 'responsive',
+    'property': 'margin-bottom',
+  ),
   'leading': (
     'items': (
       'loose': 1.7,

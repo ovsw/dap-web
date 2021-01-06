@@ -8,24 +8,26 @@
   }
 
   &__title {
-    font-size: get-size('600');
+    font-size: get-size('500');
   }
 
   &__subtitle{
     color: get-color('muted');
+    font-size: get-size('350');
+    display: block;
   }
 
   &__eyebrow {
     font-size: get-size('300');
     letter-spacing: 1px;
-    &.red {
-      color: get-color('accent');
+    & .red {
+      background-color: get-color('accent');
     }
-    &.green {
-      color: get-color('primary');
+    & .green {
+      background-color: get-color('primary');
     }
-    &.blue {
-      color: get-color('secondary');
+    & .blue {
+      background-color: get-color('secondary');
     }
   }
 

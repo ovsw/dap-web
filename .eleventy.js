@@ -4,6 +4,10 @@ const client = require('./src/utils/sanityClient.js')
 const serializers = require('./src/utils/serializers')
 const urlFor = require('./src/utils/imageUrl')
 
+// Filters
+const dateFilter = require('./src/filters/date-filter.js');
+const w3DateFilter = require('./src/filters/w3-date-filter.js');
+
 module.exports = config => {
   // Set directories to pass through to the dist folder
   config.addPassthroughCopy('./src/images/');
@@ -38,11 +42,15 @@ module.exports = config => {
 
 // ////////////////////////////////////
 // filter to process portable text (block content) - needed for arrays of different sections from the back-end
-config.addFilter("blocksToMarkdown", function(sanityBlockContent) {
-  return BlocksToMarkdown(sanityBlockContent, { serializers, ...client.config() })
-})
-// end portable text filter
+  config.addFilter("blocksToMarkdown", function(sanityBlockContent) {
+    return BlocksToMarkdown(sanityBlockContent, { serializers, ...client.config() })
+  })
+  // end portable text filter
 // ////////////////////////////////////
+
+// add date filters
+  config.addFilter('dateFilter', dateFilter);
+  config.addFilter('w3DateFilter', w3DateFilter);
 
 // ////////////////////////////////////
 // sanity images shortcodes
