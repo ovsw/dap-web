@@ -31,7 +31,11 @@
     }
   }
 
-  &__buttonWrapper a{
+  &__image {
+    cursor: pointer;
+  }
+
+  &__buttonWrapper a {
     color: get-color('muted');
     font-size: get-size('350');
   }

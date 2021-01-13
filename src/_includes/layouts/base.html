@@ -30,6 +30,8 @@
       })(document);
     </script> #}
     <link rel="stylesheet" media="print" href="/fonts/fonts.css?{{ assetHash }}" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" onload="this.media='all'" />
+
 
     {# Add facility for pages to declare an array of stylesheet paths #}
     {% if pageStylesheets %}
@@ -38,22 +40,37 @@
       {% endfor %}
     {% endif %}
 
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
-    {# <script src="/js/main.js" #}
   </head>
 
   <body>
     <div class="site-wrap">
+    
       {% include "partials/site-head.html" %}
-      <script type="text/javascript">
+
+      {# <script type="text/javascript">
         console.log({{metadata | dump | safe}});
-      </script>
-      <h1>{{metadata.title}} </h1>
+      </script> #}
+      {# <h1>{{metadata.title}} </h1> #}
       <main tabindex="-1" id="main-content">
         {% block content %}{% endblock %}
       </main>
     </div>
 
     {% include "partials/site-footer.html" %}
+    
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js" defer></script>
+
+    <script type="text/javascript">
+
+      var options = {
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true
+      }
+
+      const lightbox = GLightbox({ ...options });
+    </script>
+
   </body>
 </html>

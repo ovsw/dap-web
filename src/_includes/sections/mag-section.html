@@ -21,6 +21,12 @@
   sizes="(min-width: 40em) 70vw, 100vw"
   alt="{{ section.image.alt}}"
   > #}
+
+  {% if section.video %}
+    ***{{section.video}}***
+    
+  {% endif %}
+
   <img src="{% croppedUrlFor section.image, '500', '400' %}" 
   srcset="{% croppedUrlFor section.image, '600', '400' %} 500w,
   {% croppedUrlFor section.image, '900', '600' %}  960w"

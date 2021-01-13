@@ -1,0 +1,45 @@
+{% extends "layouts/base.html" %} 
+{% set pageCriticalStyles = ['css/page.css'] %}
+
+{% from 'components/grid-card.html' import gridCard %}
+{% from 'components/page-header.html' import pageHeader %}
+
+{% block content %}
+
+  {{pageHeader(title=title)}}
+
+  
+
+  <div class=" [ wrapper auto-grid news-grid ]">
+
+  {% set tagValues = {
+    'food': '<span class="tag food">food</span>',
+    'music': '<span class="tag music">music</span>',
+    'free': '<span class="tag free">free entry</span>',
+    'hiring': '<span class="tag hiring">hiring</span>'
+  }%}
+
+  {% for event in siteEvents %}
+
+    {% set tags = [] %}
+
+    {% for tagName, tagValue in tagValues %}
+      {% if tagName in event.content.tags %}
+        {% set tags = (tags.push(tagValue),tags) %}
+      {% endif %}
+    {% endfor %}
+
+    {{ gridCard(
+      titile=event.content.title,
+      eyebrow=tags | join('<span class="visually-hidden">, </span> '),
+      image=event.content.mainImage,
+      subtitle= event.content.date | dateFilterYear,
+      alt=event.content.mainImage.alt,
+      buttonText='read more <span class="visually-hidden">on news article'+ event.content.name + '</span>',
+      buttonLink=event.content.slug.current,
+      titleHeadingLvl=3
+    )}}
+  {% endfor %}
+  </div>
+
+{% endblock %}

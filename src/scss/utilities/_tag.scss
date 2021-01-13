@@ -19,4 +19,11 @@
     background-color: get-color('tertiary');
     color: get-color('dark');
   }
+  &.music {
+    background-color: get-color('secondary');
+  }
+  &.free {
+    background-color: get-color('tertiary');
+    color: get-color('dark');
+  }
 }

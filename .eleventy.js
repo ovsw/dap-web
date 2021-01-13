@@ -6,6 +6,7 @@ const urlFor = require('./src/utils/imageUrl')
 
 // Filters
 const dateFilter = require('./src/filters/date-filter.js');
+const dateFilterYear = require('./src/filters/date-filter-year.js');
 const w3DateFilter = require('./src/filters/w3-date-filter.js');
 
 module.exports = config => {
@@ -50,6 +51,7 @@ module.exports = config => {
 
 // add date filters
   config.addFilter('dateFilter', dateFilter);
+  config.addFilter('dateFilterYear', dateFilterYear);
   config.addFilter('w3DateFilter', w3DateFilter);
 
 // ////////////////////////////////////

@@ -109,11 +109,11 @@
         "children": [
           {
             "name": "Upcoming Events",
-            "url": "/news/events/"
+            "url": "/events/"
           },
           {
-            "name": "Event Archive",
-            "url": "/events/archive/"
+            "name": "News",
+            "url": "/news/"
           }
         ]
       },
@@ -121,10 +121,6 @@
         "column": 3,
         "name": "About Us",
         "children": [
-          {
-            "name": "News",
-            "url": "/news/"
-          },
           {
             "name": "Our History",
             "url": "/our-history/"
