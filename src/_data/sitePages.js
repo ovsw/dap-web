@@ -31,9 +31,18 @@ const hasToken = !!client.config().token
 
 module.exports =  async function() {
   const sanityResponse = await client.fetch(groq`
-    *[_type == "page"]{
-      ...
+  *[_type == "page"]{
+    ...,
+    content {
+      ...,
+      sections[] {
+        ...,
+        reusableSection->{
+          ...
+        }
+      }
     }
+  }
   `).catch(err => console.error(err))
 
   // processedResponse = processResponse(sanityResponse)
