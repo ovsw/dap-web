@@ -44,7 +44,7 @@
 
   <body>
     <div class="site-wrap">
-    
+
       {% include "partials/site-head.html" %}
 
       {# <script type="text/javascript">
@@ -63,13 +63,18 @@
 
     <script type="text/javascript">
 
-      var options = {
-        touchNavigation: true,
-        loop: true,
-        autoplayVideos: true
-      }
+      window.onload = (event) => {
+        console.log('page is fully loaded');
 
-      const lightbox = GLightbox({ ...options });
+        var options = {
+          touchNavigation: true,
+          loop: true,
+          autoplayVideos: true,
+          autofocusVideos: true
+        }
+
+        const lightbox = GLightbox({ ...options });
+      };
     </script>
 
   </body>
