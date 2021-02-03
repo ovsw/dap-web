@@ -6,18 +6,25 @@ const hasToken = !!client.config().token
 
 module.exports =  async function() {
   const sanityResponse = await client.fetch(groq`
-    *[_type == "event"  && content.date > now()]{
+  *[_type == "event"  && content.date > now()]{
+    ...,
+    content {
       ...,
-      content {
+      sections[] {
         ...,
-        sections[] {
+        _type == 'sponsorsSection' => {
           ...,
-          reusableSection->{
+          sponsorsList[]->{
             ...
           }
+        },
+        _type == 'fileSection' => {
+          ...,
+          "fileUrl": file.asset->url
         }
       }
-    } | order(content.date desc)
+    }
+  } | order(content.date desc)
   `).catch(err => console.error(err))
 
   const reducedDocs = overlayDrafts(hasToken, sanityResponse)

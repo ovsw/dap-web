@@ -1,0 +1,15 @@
+<section class="[ sponsorsSection ]">
+
+    <div class="[ sponsorsSection__color-overlay ] [ pinned ]"></div>
+    
+    <div class="[ wrapper ]">
+        
+      <div class="[ sponsorsSection__content ] [ pannel auto-grid ]">
+        {% for sponsor in section.sponsorsList %}
+          <a href="{{sponsor.url}}" target="_blank">
+            <img src="{% imageUrlForH sponsor.image, 200 %}" alt="{{ sponsor.name }} logo">
+          </a>          
+        {% endfor %}
+      </div>
+    </div>
+  </section>

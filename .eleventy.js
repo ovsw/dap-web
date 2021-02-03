@@ -62,6 +62,11 @@ config.addShortcode('imageUrlFor', (image, width = "400") => {
       .width(width)
       .auto('format')
 })
+config.addShortcode('imageUrlForH', (image, height = "400") => {
+  return urlFor(image)
+      .height(height)
+      .auto('format')
+})
 config.addShortcode('croppedUrlFor', (image, width, height) => {
   return urlFor(image)
       .width(width)

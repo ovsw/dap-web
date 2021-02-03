@@ -37,6 +37,12 @@
     {% if section._type == 'reusedSection' %}
       {% include "sections/reusable-section.html" %}
     {% endif %}
+    {% if section._type == 'sponsorsSection' %}
+      {% include "sections/sponsors-section.html" %}
+    {% endif %}
+    {% if section._type == 'fileSection' %}
+      {% include "sections/file-section.html" %}
+    {% endif %}
 
   {% endfor %}
 

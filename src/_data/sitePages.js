@@ -39,6 +39,16 @@ module.exports =  async function() {
         ...,
         reusableSection->{
           ...
+        },
+        _type == 'sponsorsSection' => {
+          ...,
+          sponsorsList[]->{
+            ...
+          }
+        },
+        _type == 'fileSection' => {
+          ...,
+          "fileUrl": file.asset->url
         }
       }
     }
