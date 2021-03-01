@@ -24,14 +24,16 @@
     {% set tags = [] %}
 
     {% for tagName, tagValue in tagValues %}
-      {% if tagName in event.content.tags %}
-        {% set tags = (tags.push(tagValue),tags) %}
+      {% if tagname %}
+        {% if tagName in event.content.tags %}
+          {% set tags = (tags.push(tagValue),tags) %}
+        {% endif %}
       {% endif %}
     {% endfor %}
 
     {{ gridCard(
       titile=event.content.title,
-      eyebrow=tags | join('<span class="visually-hidden">, </span> '),
+     
       image=event.content.mainImage,
       subtitle= event.content.date | dateFilterYear,
       alt=event.content.mainImage.alt,
