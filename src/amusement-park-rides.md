@@ -1,6 +1,6 @@
 ---
   title: 'Rides'
-  layout: 'layouts/rides.html'
+  layout: 'layouts/parkRides.html'
 ---
 
 Rides Listed Here

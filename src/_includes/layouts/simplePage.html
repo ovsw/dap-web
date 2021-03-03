@@ -1,0 +1,46 @@
+{% extends "layouts/base.html" %}
+{% set pageCriticalStyles = ['css/page.css'] %}
+
+{% from 'components/page-header.html' import pageHeader %}
+{% from 'components/content-sections.html' import contentSections %}
+
+{# generate excerpt from body portable text field if there's no seo description entered #}
+{% if siteSimplePage.content.seoDescription == '' %}
+  {% set seoDescription = helpers.truncateString(siteSimplePage.content.body | blocksToMarkdown | markdownToText | safe , 160) %}
+{% else %}
+  {% set seoDescription = siteSimplePage.content.seoDescription %}
+{% endif %}
+{% set ogImage = siteSimplePage.content.image or siteSettings.image %}
+
+{# provide seo tags to base template #}
+{% block seo %}
+      <title>{{siteSimplePage.content.seoTitle}} | DG2GO</title>
+      <meta name="description" content="{{seoDescription}}">
+
+      <meta property="og:title" content="{{siteSimplePage.content.seoTitle}}"/>
+      <meta property="og:url" content="{{page.url}}" />
+      <meta property="og:description" content="{{seoDescription}}" />
+      <meta property="og:image" content="{% croppedUrlFor ogImage, '1200', '627' %}" />
+      <meta property="og:type" content="website" />
+{% endblock %}
+
+{% block content %}
+
+{# <script>console.log({{siteSimplePage.content | dump | safe}})</script> #}
+
+<div class="narrow">
+{{pageHeader(title=siteSimplePage.content.title, image=siteSimplePage.content.image)}}
+</div>
+
+<section class="[ gap-top-800 gap-bottom-600  md:gap-bototm-xl ]">
+  <div class="wrapper">
+    <div class="[ mx-auto lg:measure-long flow ]">
+      
+      {{siteSimplePage.content.body | blocksToMarkdown | markdownify | safe }}
+    </div>
+  </div>
+</section>
+
+<div class="gap-top-2xl"></div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layouts/base.html" %}
+{% set pageCriticalStyles = ['css/page.css'] %}
+
+{% from 'components/grid-card.html' import gridCard as singleGridCard %}
+{% from 'components/page-header.html' import pageHeader %}
+
+
+{% block content %}
+
+  {# <script>console.log({{siteParkRides | dump | safe}})</script> #}
+
+  {{pageHeader(title='Laguna Splash Water Park Attractions')}}
+
+  <div class=" [ wrapper auto-grid gap-bottom-900 gap-top-900 ]">
+  {% for attraction in siteWaterParkAttractions %}
+    {# {% if '|' in attraction.content.category %}
+      {% set rideCategory = attraction.content.category.split('|')[1] %}
+    {% else %}
+      {% set rideCategory = attraction.content.category %}
+    {% endif %} #}
+
+    {{ singleGridCard(
+      titile=attraction.content.name,
+      eyebrowColor='green',
+      image=attraction.content.mainImage,
+      alt=attraction.content.mainImage.alt,
+      buttonText='more info <span class="visually-hidden">on '+ attraction.content.name +' attraction </span>',
+      buttonLink=attraction.content.slug.current,
+      titleHeadingLvl=3
+    )}}
+
+  {% endfor %}
+  </div>
+
+{% endblock %}

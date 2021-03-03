@@ -31,7 +31,7 @@ const hasToken = !!client.config().token
 
 module.exports =  async function() {
   const sanityResponse = await client.fetch(groq`
-    *[_type == "attraction"]{
+    *[_type == "attraction" && content.category == "Water Park"]{
       ...
     }
   `).catch(err => console.error(err))

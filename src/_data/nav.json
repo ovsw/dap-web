@@ -91,11 +91,11 @@
           },
           {
             "name": "Park Rides",
-            "url": "/rides/"
+            "url": "/amusement-park-rides/"
           },
           {
           "name": "Waterpark Atractions",
-            "url": "/laguna-splash-water-park/attractions/"
+            "url": "/laguna-splash-water-park-attractions/"
           },
           {
           "name": "Places to Stay & Things to See",
@@ -211,6 +211,10 @@
           {
             "name": "Places to Stay & Things to See",
             "url": "/place-to-stay-things-to-see/"
+          },
+          {
+            "name": "Contact Us",
+            "url": "/contact/"
           }
         ]
       }
@@ -269,7 +273,7 @@
           },
           {
           "name": "Park Rides",
-            "url": "/rides/"
+            "url": "/amusement-park-rides/"
           }
         ]
       }

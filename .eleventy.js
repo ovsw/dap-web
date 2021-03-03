@@ -97,6 +97,22 @@ config.addShortcode('responsiveImage', (image, srcs="320,640,900", sizes="100vw"
           alt="${alt}" >`
   )
 })
+
+config.addShortcode('pageHeaderResponsiveBgImage', (image, mobileW=400, mobileH=400, deskW=1600, deskH=774) => {
+  const mobileUrl = urlFor(image)
+      .width(mobileW)
+      .height(mobileH)
+      .auto('format')
+  const desktopUrl = urlFor(image)
+      .width(deskW)
+      .height(deskH)
+      .auto('format')
+
+  return (
+    `<style>.page-header {background-image: url('${mobileUrl}')}
+    @media screen and (min-width: 1600px) {.page-header {background-image: url('${desktopUrl}')}}</style>`
+  )
+})
 // ////////////////////////////////////
 
   // Nunjucks Filter for converting sring to kebab-case

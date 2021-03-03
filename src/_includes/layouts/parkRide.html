@@ -7,8 +7,8 @@
 
 {% block content %}
 
-  <script>console.log('dump',{{siteAttraction.content.mainImage | dump | safe}})</script>
+  <script>console.log('dump',{{siteParkRide.content.mainImage | dump | safe}})</script>
 
-  {{pageHeader(title=siteAttraction.content.name, image=siteAttraction.content.mainImage)}}
-  {{contentSections(siteAttraction.content.sections)}}
+  {{pageHeader(title=siteParkRide.content.name, image=siteParkRide.content.mainImage)}}
+  {{contentSections(siteParkRide.content.sections)}}
 {% endblock %}
