@@ -24,7 +24,7 @@ module.exports =  async function() {
         }
       }
     }
-  } | order(content.date desc)
+  } | order(content.date asc)
   `).catch(err => console.error(err))
 
   const reducedDocs = overlayDrafts(hasToken, sanityResponse)
