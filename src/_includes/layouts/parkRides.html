@@ -3,15 +3,21 @@
 
 {% from 'components/grid-card.html' import gridCard as singleGridCard %}
 {% from 'components/page-header.html' import pageHeader %}
+{% from 'components/content-sections.html' import contentSections %}
 
 
 {% block content %}
 
   {# <script>console.log({{siteParkRides | dump | safe}})</script> #}
 
-  {{pageHeader(title='Park Rides')}}
+  {% set ridesPage = global.getSpecialPageById(sitePagesSpecial, "parkRides") %}
+  {{pageHeader(title=ridesPage.content.title, image=ridesPage.content.mainImage)}}
 
-  <div class=" [ wrapper auto-grid gap-bottom-900 gap-top-900 ]">
+  {{contentSections(ridesPage.content.sectionsTop)}}
+
+  <div class=" [ wrapper auto-grid gap-bottom-400 ]"> 
+  {# gap-bottom-900 gap-top-900 #}
+
   {% for ride in siteParkRides %}
     {# {% if '|' in attraction.content.category %}
       {% set rideCategory = attraction.content.category.split('|')[1] %}
@@ -32,5 +38,7 @@
 
   {% endfor %}
   </div>
+
+  {{contentSections(ridesPage.content.sectionsBottom)}}
 
 {% endblock %}

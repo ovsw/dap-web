@@ -9,5 +9,10 @@ module.exports = {
   getCurrentLanguage(pageUrl) {
     const language =  pageUrl == "/" ? "en" : pageUrl.substring(1, 3);
     return language;
+  },
+
+  getSpecialPageById(pagesArr, pageId) {
+    selectedPagesArr = pagesArr.filter(page => page._id == pageId);
+    return selectedPagesArr[0];
   }
 };
