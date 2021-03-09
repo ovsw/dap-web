@@ -57,8 +57,8 @@
             "url": "/famous-food/food-map/"
           },
           {
-          "name": "Food News",
-            "url": "/news/food/"
+          "name": "Spaghetti Wednesdays",
+            "url": "/food/spaghetti-wednesdays/"
           },
           {
           "name": "The DelGrosso Food Tradition",
@@ -205,12 +205,12 @@
             "url": "/guest-policies/"
           },
           {
-            "name": "Main Park Office & Info Booths",
-            "url": "/main-park-office/"
+            "name": "Guest Relations & Info Booth",
+            "url": "/guest-relations-and-info-booth/"
           },
           {
-            "name": "Places to Stay & Things to See",
-            "url": "/place-to-stay-things-to-see/"
+            "name": "COVID-19 Safety Guidelines",
+            "url": "/covid-19-safety-guidelines/"
           },
           {
             "name": "Contact Us",
