@@ -159,7 +159,7 @@ $main-menu-colors: (
       0 2px 4px rgba(get-color('secondary'), 0.05),
       0 2px 18px 3px rgba(get-color('secondary'), 0.1);
       display: flex;
-      width: 43rem;
+      //width: 43rem;
       border-top: 3px solid black;
 
       @each $no, $color in $main-menu-colors {
@@ -251,6 +251,7 @@ $main-menu-colors: (
       @include media-query('lg') {
         padding: 0;
         padding-top: get-size('300');
+        white-space: nowrap;
       }
     }
   }

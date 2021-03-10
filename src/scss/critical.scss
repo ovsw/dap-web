@@ -126,3 +126,7 @@ h1, h2 {
 .mx-auto {
   margin: 0 auto;
 }
+
+.cognito:not(.c-forms-actionBar) {
+  max-width: 100%!important;
+}

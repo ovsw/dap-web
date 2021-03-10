@@ -98,8 +98,8 @@
             "url": "/laguna-splash-water-park-attractions/"
           },
           {
-          "name": "Places to Stay & Things to See",
-            "url": "/place-to-stay-and-things-to-see/"
+            "name": "COVID-19 Safety Guidelines",
+            "url": "/covid-19-safety-guidelines/"
           }
         ]
       },
@@ -260,6 +260,10 @@
           {
           "name": "Season Pass Holders",
             "url": "/season-pass-holder-information/"
+          },
+          {
+          "name": "2019 Season Pass Refunds",
+            "url": "/2019-season-pass-refund-form/"
           }
         ]
       },

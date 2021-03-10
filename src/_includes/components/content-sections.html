@@ -43,6 +43,9 @@
     {% if section._type == 'fileSection' %}
       {% include "sections/file-section.html" %}
     {% endif %}
+    {% if section._type == 'embedSection' %}
+      {% include "sections/embed-section.html" %}
+    {% endif %}
 
   {% endfor %}
 
